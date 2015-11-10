@@ -4,22 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var braintree = require('braintree');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
-require('dotenv').load();
-
-// configure Braintree environment
-var gateway = braintree.connect({
-  environment: braintree.Environment[process.env.BT_ENVIRONMENT],
-  merchantId: process.env.BT_MERCHANT_ID,
-  publicKey: process.env.BT_PUBLIC_KEY,
-  privateKey: process.env.BT_PRIVATE_KEY,
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
