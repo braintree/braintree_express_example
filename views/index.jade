@@ -3,3 +3,11 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  p Hello world
+
+  script(src='https://js.braintreegateway.com/v2/braintree.js')
+  script.
+    var token = "#{clientToken}";
+    braintree.setup(token, "dropin", {
+      container: "payment-form"
+    });
