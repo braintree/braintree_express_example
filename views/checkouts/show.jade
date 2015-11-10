@@ -1,0 +1,87 @@
+html
+  body
+    h1 Transaction
+    h2 Details
+    p
+      table
+        tr
+          th Property
+          th Value
+        tr
+          td id
+          td= transaction.id
+        tr
+          td type
+          td= transaction.type
+        tr
+          td amount
+          td= transaction.amount
+        tr
+          td status
+          td= transaction.status
+        tr
+          td createdAt
+          td= transaction.createdAt
+        tr
+          td updatedAt
+          td= transaction.updatedAt
+    h2 Credit Card Details
+    p
+      table
+        tr
+          th Property
+          th Value
+        tr
+          td token
+          td= transaction.creditCard.token
+        tr
+          td bin
+          td= transaction.creditCard.bin
+        tr
+          td last4
+          td= transaction.creditCard.last4
+        tr
+          td cardType
+          td= transaction.creditCard.cardType
+        tr
+          td expirationDate
+          td= transaction.creditCard.expirationDate
+        tr
+          td cardholderName
+          td= transaction.creditCard.cardholderName
+        tr
+          td customerLocation
+          td= transaction.creditCard.customerLocation
+
+    h2 Customer Details
+    p
+      table
+        tr
+          th Property
+          th Value
+        tr
+          td id
+          td= transaction.customer.id
+        tr
+          td firstName
+          td= transaction.customer.firstName
+        tr
+          td lastName
+          td= transaction.customer.lastName
+        tr
+          td email
+          td= transaction.customer.email
+        tr
+          td company
+          td= transaction.customer.company
+        tr
+          td website
+          td= transaction.customer.website
+        tr
+          td phone
+          td= transaction.customer.phone
+        tr
+          td fax
+          td= transaction.customer.fax
+    p
+

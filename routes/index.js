@@ -12,6 +12,13 @@ router.get('/checkouts/new', function(req, res, next) {
   });
 
 });
+
+router.get('/checkouts/:id', function(req, res, next){
+  transaction_id = req.params.id;
+
+  gateway.transaction.find(transaction_id, function(err, transaction){
+    res.render('checkouts/show', {transaction: transaction});
+  });
 });
 
 module.exports = router;
