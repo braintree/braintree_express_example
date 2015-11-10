@@ -4,6 +4,10 @@ var api = supertest("http://localhost:3000");
 var gateway = require('../lib/gateway');
 
 describe('Checkout index page', function(){
+  it("redirects to the checkouts new page", function(done){
+    api.get("/").expect(302, done);
+  });
+
   it("responds with 200", function(done){
     api.get("/checkouts/new").expect(200, done);
   });

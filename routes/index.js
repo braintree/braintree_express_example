@@ -3,7 +3,7 @@ var router = express.Router();
 var gateway = require('../lib/gateway');
 
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.redirect('/checkouts/new');
 });
 
 router.get('/checkouts/new', function(req, res, next) {
