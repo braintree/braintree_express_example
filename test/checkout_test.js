@@ -42,7 +42,7 @@ describe("Checkouts show page", function(){
   it("respond with 200", function(done){
     gateway.transaction.sale({
       amount: "10.00",
-      payment_method_nonce: "fake-valid-nonce"
+      paymentMethodNonce: "fake-valid-nonce"
     }, function(err, result){
       transaction = result.transaction
       api.get("/checkouts/" + transaction.id).expect(200, done);
@@ -52,7 +52,7 @@ describe("Checkouts show page", function(){
   it("displays the transaction's fields", function(done){
     gateway.transaction.sale({
       amount: "10.00",
-      payment_method_nonce: "fake-valid-nonce"
+      paymentMethodNonce: "fake-valid-nonce"
     }, function(err, result){
       transaction = result.transaction
       api.get("/checkouts/" + transaction.id).end(function(err, res){
