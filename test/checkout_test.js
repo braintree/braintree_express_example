@@ -13,4 +13,18 @@ describe('Checkout index page', function(){
       done();
     });
   });
+
+  it("should include the checkout form", function(done){
+    api.get("/checkouts/new").end(function(err, res) {
+      expect(res.text).to.match(/<form id="checkout"/);
+      done();
+    });
+  });
+
+  it("should include the dropin payment-form div", function(done){
+    api.get("/checkouts/new").end(function(err, res) {
+      expect(res.text).to.match(/<div id="payment-form"/);
+      done();
+    });
+  });
 });

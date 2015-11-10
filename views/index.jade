@@ -1,9 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  p Hello world
+  h1 Checkout
+  form(id='checkout', action='/checkout', method='post')
+    div(id='payment-form')
+    input(type='submit', value='Pay $10')
 
   script(src='https://js.braintreegateway.com/v2/braintree.js')
   script.

@@ -3,7 +3,7 @@ var router = express.Router();
 var gateway = require('../lib/gateway');
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
 
 router.get('/checkouts/new', function(req, res, next) {
@@ -13,7 +13,7 @@ router.get('/checkouts/new', function(req, res, next) {
     checkoutsController.clientToken = response.clientToken;
   });
 
-  res.render('index', { title: 'Express', clientToken: checkoutsController.clientToken});
+  res.render('index', { clientToken: checkoutsController.clientToken });
 });
 
 module.exports = router;
