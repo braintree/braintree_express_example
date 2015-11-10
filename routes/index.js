@@ -8,9 +8,8 @@ router.get('/', function(req, res, next) {
 
 router.get('/checkouts/new', function(req, res, next) {
   gateway.clientToken.generate({}, function(err, response){
-    res.render('index', { clientToken: response.clientToken});
+    res.render('checkouts/new', { clientToken: response.clientToken});
   });
-
 });
 
 router.get('/checkouts/:id', function(req, res, next){
