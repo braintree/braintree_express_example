@@ -71,3 +71,11 @@ describe("Checkouts show page", function(){
 
   });
 });
+
+describe("Checkouts create", function(){
+  it("creates a transaction and redirects to checkout show", function(done){
+    api.post("/checkouts")
+      .send({amount: '10.00', payment_method_nonce: 'fake-valid-nonce'})
+      .expect(302, done)
+  });
+});

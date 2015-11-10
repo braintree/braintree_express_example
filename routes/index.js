@@ -21,4 +21,16 @@ router.get('/checkouts/:id', function(req, res, next){
   });
 });
 
+router.post('/checkouts', function(req, res, next){
+  amount = req.body.amount; // In production you should not take amounts directly from clients
+  nonce = req.body.payment_method_nonce;
+
+  gateway.transaction.sale({
+    amount: amount,
+    paymentMethodNonce: nonce,
+  }, function(err, result){
+    res.redirect('checkouts/' + result.transaction.id)
+  });
+});
+
 module.exports = router;
