@@ -7,13 +7,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/checkouts/new', function(req, res, next) {
-  var checkoutsController = this;
-
   gateway.clientToken.generate({}, function(err, response){
-    checkoutsController.clientToken = response.clientToken;
+    res.render('index', { clientToken: response.clientToken});
   });
 
-  res.render('index', { clientToken: checkoutsController.clientToken });
+});
 });
 
 module.exports = router;
