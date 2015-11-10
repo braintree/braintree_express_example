@@ -28,6 +28,14 @@ describe('Checkout index page', function(){
       done();
     });
   });
+
+  it("includes the amount field", function(done){
+    api.get("/checkouts/new").end(function(err, res) {
+      expect(res.text).to.match(/<label for="amount/);
+      expect(res.text).to.match(/<input type="text" name="amount" id="amount/);
+      done();
+    });
+  });
 });
 
 describe("Checkouts show page", function(){
