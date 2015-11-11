@@ -28,8 +28,13 @@ router.post('/checkouts', function(req, res, next){
     amount: amount,
     paymentMethodNonce: nonce,
   }, function(err, result){
-    res.redirect('checkouts/' + result.transaction.id)
+    if (result.success) {
+      res.redirect('checkouts/' + result.transaction.id)
+    } else {
+      res.redirect('checkouts/new')
+    }
   });
 });
+
 
 module.exports = router;

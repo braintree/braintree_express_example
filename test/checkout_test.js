@@ -82,4 +82,14 @@ describe("Checkouts create", function(){
       .send({amount: '10.00', payment_method_nonce: 'fake-valid-nonce'})
       .expect(302, done)
   });
+
+  describe("when the transaction is not successful", function(){
+    it("redirects to the new checkout page if transaction is not created", function(done) {
+      api.post("/checkouts")
+        .send({amount: 'not_a_valid_amount', payment_method_nonce: 'not_a_valid_nonce'})
+        .expect(302)
+        .expect('Location', 'checkouts/new')
+        .end(done);
+    });
+  });
 });
