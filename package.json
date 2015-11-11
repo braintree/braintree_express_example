@@ -20,7 +20,9 @@
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "braintree": "1.30.0",
-    "dotenv": "1.2.0"
+    "dotenv": "1.2.0",
+    "connect-flash": "0.1.1",
+    "express-session": "1.12.1"
   },
   "engines": {
     "node": "4.2.2"
