@@ -2,9 +2,9 @@ for msg in messages
   div #{msg.msg}
 
 h1 Checkout
-label(for="amount") amount
-input(type="text", name="amount", id="amount")
 form(id='checkout', action='/checkouts', method='post')
+  label(for="amount") amount
+  input(type="text", name="amount", id="amount")
   div(id='payment-form')
   input(type='submit', value='Pay $10')
 
