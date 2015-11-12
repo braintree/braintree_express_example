@@ -11,3 +11,7 @@ An example Braintree integration for node in the Express framework.
 
 3. Start server
   `npm start`
+
+## Running tests
+
+All test are integration tests. Integration tests make api calls to Braintree and require that you set up your Braintree credentials. You can run this project's integration tests by adding your sandbox api credentials to `.env` and running `./node_modules/mocha/bin/mocha --timeout 2500` on the command line.
