@@ -1,5 +1,8 @@
 var expect = require('chai').expect;
 var supertest = require('supertest');
+var superagent = require('superagent');
+var agent = superagent.agent();
+
 var api = supertest("http://localhost:3000");
 var gateway = require('../lib/gateway');
 
@@ -72,7 +75,6 @@ describe("Checkouts show page", function(){
         done();
       });
     });
-
   });
 });
 
@@ -90,6 +92,20 @@ describe("Checkouts create", function(){
         .expect(302)
         .expect('Location', 'checkouts/new')
         .end(done);
+    });
+
+    it("displays errors", function(done) {
+      api.post("/checkouts")
+        .send({amount: 'not_a_valid_amount', payment_method_nonce: 'not_a_valid_nonce'})
+        .end(function(err, res){
+          agent.saveCookies(res);
+          var req = api.get("/checkouts/new")
+          agent.attachCookies(req);
+          req.end(function (err, res){
+            expect(res.text).to.contain("Amount is an invalid format");
+            done();
+          });
+        });
     });
   });
 });
