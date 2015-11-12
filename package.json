@@ -9,7 +9,8 @@
   "devDependencies": {
     "mocha": "2.3.3",
     "supertest": "1.0.1",
-    "chai": "3.4.1"
+    "chai": "3.4.1",
+    "superagent": "1.4.0"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
