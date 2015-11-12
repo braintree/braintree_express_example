@@ -24,7 +24,7 @@ router.get('/checkouts/:id', function(req, res, next){
   transaction_id = req.params.id;
 
   gateway.transaction.find(transaction_id, function(err, transaction){
-    res.render('checkouts/show', {transaction: transaction});
+    res.render('checkouts/show', {transaction: transaction, messages: req.flash('error')});
   });
 });
 
@@ -37,6 +37,9 @@ router.post('/checkouts', function(req, res, next){
     paymentMethodNonce: nonce,
   }, function(err, result){
     if (result.success) {
+      res.redirect('checkouts/' + result.transaction.id)
+    } else if (result.transaction) {
+      req.flash('error', { msg: 'Transaction status - ' + result.transaction.status });
       res.redirect('checkouts/' + result.transaction.id)
     } else {
       var transactionErrors = result.errors.deepErrors();

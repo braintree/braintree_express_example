@@ -1,6 +1,9 @@
 html
   body
-    h1 Transaction
+    for msg in messages
+      div #{msg.msg}
+
+  h1 Transaction
     h2 Details
     p
       table
