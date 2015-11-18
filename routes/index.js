@@ -49,5 +49,4 @@ router.post('/checkouts', function(req, res, next){
   });
 });
 
-
 module.exports = router;
