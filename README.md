@@ -21,7 +21,7 @@ All test are integration tests. Integration tests make api calls to Braintree an
 $ npm start
 
 # Open another shell and run
-$ ./node_modules/mocha/bin/mocha --timeout -2500
+$ npm test
 ```
 
 ## Pro Tips
