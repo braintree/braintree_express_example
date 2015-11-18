@@ -85,7 +85,7 @@ describe("Checkouts create", function(){
       .expect(302, done)
   });
 
-  describe("when the transaction is not successful", function(){
+  context("when the transaction is not successful", function(){
     describe("when braintree returns an error", function(){
       it("redirects to the new checkout page if transaction is not created", function(done) {
         api.post("/checkouts")
@@ -110,7 +110,7 @@ describe("Checkouts create", function(){
       });
     });
 
-    describe("when there are processor errors", function(){
+    context("when there are processor errors", function(){
       it("redirects to the checkouts show page", function(done) {
         api.post("/checkouts")
         .send({amount: '2000.00', payment_method_nonce: 'fake-valid-nonce'})
