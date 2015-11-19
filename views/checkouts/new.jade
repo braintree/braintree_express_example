@@ -1,16 +1,19 @@
-for msg in messages
-  div #{msg.msg}
+extends ../layout
 
-h1 Checkout
-form(id='checkout', action='/checkouts', method='post')
-  label(for="amount") amount
-  input(type="text", name="amount", id="amount", value="10.00")
-  div(id='payment-form')
-  input(type='submit', value='Pay Now')
+block content
+  for msg in messages
+    div #{msg.msg}
 
-script(src='https://js.braintreegateway.com/v2/braintree.js')
-script.
-  var token = "#{clientToken}";
-  braintree.setup(token, "dropin", {
-    container: "payment-form"
-  });
+  h1 Checkout
+  form(id='checkout', action='/checkouts', method='post')
+    label(for="amount") amount
+    input(type="text", name="amount", id="amount", value="10.00")
+    div(id='payment-form')
+    input(type='submit', value='Pay Now')
+
+  script(src='https://js.braintreegateway.com/v2/braintree.js')
+  script.
+    var token = "#{clientToken}";
+    braintree.setup(token, "dropin", {
+      container: "payment-form"
+    });

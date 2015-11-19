@@ -1,7 +1,8 @@
-html
-  body
-    for msg in messages
-      div #{msg.msg}
+extends ../layout
+
+block content
+  for msg in messages
+    div #{msg.msg}
 
   h1 Transaction
     h2 Details
