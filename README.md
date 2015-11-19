@@ -1,32 +1,37 @@
 # Braintree Express Example
-An example Braintree integration for node in the Express framework.
+An example Braintree integration for Node in the Express framework.
 
 ## Setup Instructions
 
-1. Install packages
-  `npm install`
+1. Install packages.
+
+   ```sh
+   npm install
+   ```
 
 2. Copy the `example.env` file to `.env` and fill in your Braintree API credentials. Credentials can be found by navigating to Account > My user > View API Keys in the Braintree control panel. Full instructions can be [found on our support site](https://articles.braintreepayments.com/control-panel/important-gateway-credentials#api-credentials).
 
+3. Start the server.
 
-3. Start server
-  `npm start`
+   ```sh
+   npm start
+   ```
 
 ## Running tests
 
-All test are integration tests. Integration tests make api calls to Braintree and require that you set up your Braintree credentials. You can run this project's integration tests by adding your sandbox api credentials to `.env` and running the following commands
+All tests are integration tests. Integration tests make API calls to Braintree and require that you set up your Braintree credentials. You can run this project's integration tests by adding your sandbox API credentials to `.env` and running the following commands:
 
 ```sh
 # Start your node server
-$ npm start
+npm start
 
 # Open another shell and run
-$ npm test
+npm test
 ```
 
 ## Pro Tips
 
-- If you encounter the error `TypeError: Cannot call method 'baseUrl' of undefined`, be sure that the environment set in your `.env` file is capitalized. For example, when using the sandbox environment it should be set to `Sandbox` and not `sandbox`.
+- If you encounter the error `TypeError: Cannot call method 'baseUrl' of undefined`, be sure that the environment set in your `.env` file is capitalized. For example, when using the sandbox environment, it should be set to `Sandbox` and not `sandbox`.
 
 ## Disclaimer
 
