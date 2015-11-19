@@ -86,7 +86,7 @@ describe("Checkouts create", function(){
   });
 
   context("when the transaction is not successful", function(){
-    describe("when braintree returns an error", function(){
+    context("when braintree returns an error", function(){
       it("redirects to the new checkout page if transaction is not created", function(done) {
         api.post("/checkouts")
         .send({amount: 'not_a_valid_amount', payment_method_nonce: 'not_a_valid_nonce'})
