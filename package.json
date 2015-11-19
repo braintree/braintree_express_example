@@ -7,10 +7,10 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "mocha": "2.3.3",
-    "supertest": "1.0.1",
-    "chai": "3.4.1",
-    "superagent": "1.4.0"
+    "mocha": "~2.3.3",
+    "supertest": "~1.0.1",
+    "chai": "~3.4.1",
+    "superagent": "~1.4.0"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -21,9 +21,9 @@
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "braintree": "^1.30.0",
-    "dotenv": "1.2.0",
-    "connect-flash": "0.1.1",
-    "express-session": "1.12.1"
+    "dotenv": "~1.2.0",
+    "connect-flash": "~0.1.1",
+    "express-session": "~1.12.1"
   },
   "engines": {
     "node": "4.2.2"
