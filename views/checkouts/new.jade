@@ -4,7 +4,7 @@ for msg in messages
 h1 Checkout
 form(id='checkout', action='/checkouts', method='post')
   label(for="amount") amount
-  input(type="text", name="amount", id="amount")
+  input(type="text", name="amount", id="amount", value="10.00")
   div(id='payment-form')
   input(type='submit', value='Pay Now')
 
