@@ -1,50 +1,58 @@
+'use strict';
+
 var express = require('express');
-var router = express.Router();
+var router = express.Router(); // eslint-disable-line new-cap
 var gateway = require('../lib/gateway');
 
-function formatErrors (errors) {
-  formattedErrors = '';
-  for (var i in errors) {
-    formattedErrors += errors[i].code + " - " + errors[i].message + "\n";
-  }
-  return formattedErrors;
+function formatErrors(errors) {
+  return errors.map(function (err) {
+    return err.code + ' - ' + err.message;
+  }).join('\n');
 }
 
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res) {
   res.redirect('/checkouts/new');
 });
 
-router.get('/checkouts/new', function(req, res, next) {
-  gateway.clientToken.generate({}, function(err, response){
-    res.render('checkouts/new', { clientToken: response.clientToken, messages: req.flash('error') });
+router.get('/checkouts/new', function (req, res) {
+  gateway.clientToken.generate({}, function (err, response) {
+    res.render('checkouts/new', {
+      clientToken: response.clientToken,
+      messages: req.flash('error')
+    });
   });
 });
 
-router.get('/checkouts/:id', function(req, res, next){
-  transaction_id = req.params.id;
+router.get('/checkouts/:id', function (req, res) {
+  var transactionId = req.params.id;
 
-  gateway.transaction.find(transaction_id, function(err, transaction){
-    res.render('checkouts/show', { transaction: transaction, messages: req.flash('error') });
+  gateway.transaction.find(transactionId, function (err, transaction) {
+    res.render('checkouts/show', {
+      transaction: transaction,
+      messages: req.flash('error')
+    });
   });
 });
 
-router.post('/checkouts', function(req, res, next){
-  amount = req.body.amount; // In production you should not take amounts directly from clients
-  nonce = req.body.payment_method_nonce;
+router.post('/checkouts', function (req, res) {
+  var amount = req.body.amount; // In production you should not take amounts directly from clients
+  var nonce = req.body.payment_method_nonce;
 
   gateway.transaction.sale({
     amount: amount,
-    paymentMethodNonce: nonce,
-  }, function(err, result){
+    paymentMethodNonce: nonce
+  }, function (err, result) {
+    var transactionErrors;
+
     if (result.success) {
-      res.redirect('checkouts/' + result.transaction.id)
+      res.redirect('checkouts/' + result.transaction.id);
     } else if (result.transaction) {
-      req.flash('error', { msg: 'Transaction status - ' + result.transaction.status });
-      res.redirect('checkouts/' + result.transaction.id)
+      req.flash('error', {msg: 'Transaction status - ' + result.transaction.status});
+      res.redirect('checkouts/' + result.transaction.id);
     } else {
-      var transactionErrors = result.errors.deepErrors();
-      req.flash('error', { msg: formatErrors(transactionErrors) });
-      res.redirect('checkouts/new')
+      transactionErrors = result.errors.deepErrors();
+      req.flash('error', {msg: formatErrors(transactionErrors)});
+      res.redirect('checkouts/new');
     }
   });
 });
