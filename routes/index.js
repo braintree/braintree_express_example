@@ -5,7 +5,7 @@ var gateway = require('../lib/gateway');
 function formatErrors (errors) {
   formattedErrors = '';
   for (var i in errors) {
-    formattedErrors += errors[i].code + " - " + errors[i].message + "\n";
+    formattedErrors += errors[i].code + ' - ' + errors[i].message + '\n';
   }
   return formattedErrors;
 }
