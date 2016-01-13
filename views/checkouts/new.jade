@@ -5,13 +5,13 @@ block content
     div #{msg.msg}
 
   h1 Checkout
-  form(id='checkout', action='/checkouts', method='post')
+  form(id="checkout", action="/checkouts", method="post")
     label(for="amount") amount
     input(type="text", name="amount", id="amount", value="10.00")
-    div(id='payment-form')
-    input(type='submit', value='Pay Now')
+    div(id="payment-form")
+    input(type="submit", value="Pay Now")
 
-  script(src='https://js.braintreegateway.com/v2/braintree.js')
+  script(src="https://js.braintreegateway.com/v2/braintree.js")
   script.
     var token = "#{clientToken}";
     braintree.setup(token, "dropin", {
