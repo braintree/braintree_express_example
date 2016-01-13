@@ -8,7 +8,10 @@ var gateway = require('../lib/gateway');
 
 describe('Checkout index page', function(){
   it('redirects to the checkouts new page', function(done){
-    api.get('/').expect(302, done);
+    api.get('/').expect(302, function(err, response) {
+      expect(response.header.location).to.equal('/checkouts/new');
+      done();
+    });
   });
 
   it('responds with 200', function(done){
