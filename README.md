@@ -29,10 +29,6 @@ npm start
 npm test
 ```
 
-## Pro Tips
-
-- If you encounter the error `TypeError: Cannot call method 'baseUrl' of undefined`, be sure that the environment set in your `.env` file is capitalized. For example, when using the sandbox environment, it should be set to `Sandbox` and not `sandbox`.
-
 ## Disclaimer
 
 This code is provided as is and is only intended to be used for illustration purposes. This code is not production-ready and is not meant to be used in a production environment. This repository is to be used as a tool to help merchants learn how to integrate with Braintree. Any use of this repository or any of its code in a production environment is highly discouraged.

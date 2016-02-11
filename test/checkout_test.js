@@ -106,7 +106,7 @@ describe('Checkouts create', function(){
             var req = api.get('/checkouts/new')
             agent.attachCookies(req);
             req.end(function (err, res){
-              expect(res.text).to.contain('Amount is an invalid format');
+              expect(res.text).to.contain('Error: 81503: Amount is an invalid format.');
               done();
             });
           });

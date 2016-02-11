@@ -3,9 +3,9 @@ var router = express.Router();
 var gateway = require('../lib/gateway');
 
 function formatErrors (errors) {
-  formattedErrors = '';
+  var formattedErrors = '';
   for (var i in errors) {
-    formattedErrors += errors[i].code + ' - ' + errors[i].message + '\n';
+    formattedErrors += 'Error: ' + errors[i].code + ': ' + errors[i].message + '\n';
   }
   return formattedErrors;
 }
