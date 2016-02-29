@@ -3,7 +3,8 @@ var supertest = require('supertest');
 var superagent = require('superagent');
 var agent = superagent.agent();
 
-var api = supertest('http://localhost:3000');
+var PORT = process.env.PORT || '3000';
+var api = supertest('http://localhost:' + PORT);
 var gateway = require('../lib/gateway');
 
 describe('Checkout index page', function(){
