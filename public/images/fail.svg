@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>check copy 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="BT-PP-Checkout-Demo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Response-Copy" transform="translate(-539.000000, -362.000000)">
+            <g id="check-copy-5" transform="translate(539.000000, 362.000000)">
+                <circle id="Oval-215" fill="#FF6161" cx="32" cy="32" r="32"></circle>
+                <path d="M24.9839572,39.1703782 L38.9343571,24.8622758" id="long" stroke="#FFFFFF" stroke-width="3" stroke-linecap="square"></path>
+                <path d="M25.041127,39.1948941 L38.9915269,24.8867917" id="long" stroke="#FFFFFF" stroke-width="3" stroke-linecap="square" transform="translate(32.016327, 32.040843) rotate(-90.000000) translate(-32.016327, -32.040843) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
