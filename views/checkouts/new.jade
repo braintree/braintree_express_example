@@ -1,19 +1,33 @@
 extends ../layout
 
 block content
-  for msg in messages
-    div= msg.msg
+  .wrapper: .checkout.container: .content
+    header
+      h1 Hi, #[br] Let's test a transaction
+      p Make a test payment with Braintree using PayPal or a card
 
-  h1 Checkout
-  form(id="checkout", action="/checkouts", method="post")
-    label(for="amount") Amount
-    input(type="text", name="amount", id="amount", value="10.00")
-    div(id="payment-form")
-    input(type="submit", value="Pay Now")
+    form#payment-form(action="/checkouts", method="post")
+      section
+        .bt-drop-in-wrapper
+          #bt-dropin
+
+        label(for="amount")
+          span.input-label Amount
+          .input-wrapper.amount-wrapper
+            input#amount(name="amount" type="tel" min="1" placeholder="Amount" value="10")
+
+      button.button(type="submit")
+        span Test Transaction
 
   script(src="https://js.braintreegateway.com/v2/braintree.js")
   script.
-    var token = "#{clientToken}";
-    braintree.setup(token, "dropin", {
-      container: "payment-form"
-    });
+    (function () {
+      var checkout = new Demo({
+        formID: 'payment-form'
+      });
+
+      var token = "#{clientToken}";
+      braintree.setup(token, "dropin", {
+        container: "bt-dropin"
+      });
+    })()

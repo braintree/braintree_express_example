@@ -1,90 +1,112 @@
 extends ../layout
 
 block content
-  for msg in messages
-    div= msg.msg
+  .wrapper: .response.container: .content
+    if result && result.message
+      .icon
+        img(src="/images/#{result.icon}.svg" alt="")
 
-  h1 Transaction #{transaction.id}
-    h2 Details
-    table
-      tr
-        th Property
-        th Value
-      tr
-        td id
-        td= transaction.id
-      tr
-        td type
-        td= transaction.type
-      tr
-        td amount
-        td= transaction.amount
-      tr
-        td status
-        td= transaction.status
-      tr
-        td createdAt
-        td= transaction.createdAt
-      tr
-        td updatedAt
-        td= transaction.updatedAt
+      h1=result.header
+      section
+        p= result.message
+    else
+      section
+        p Test another transaction or see the Braintree API response.
 
-    h2 Credit Card Details
-    table
-      tr
-        th Property
-        th Value
-      tr
-        td token
-        td= transaction.creditCard.token
-      tr
-        td bin
-        td= transaction.creditCard.bin
-      tr
-        td last4
-        td= transaction.creditCard.last4
-      tr
-        td cardType
-        td= transaction.creditCard.cardType
-      tr
-        td expirationDate
-        td= transaction.creditCard.expirationDate
-      tr
-        td cardholderName
-        td= transaction.creditCard.cardholderName
-      tr
-        td customerLocation
-        td= transaction.creditCard.customerLocation
+    section
+      a.button.primary.back(href="/checkouts/new")
+        span Test Another Transaction
 
-    h2 Customer Details
-    table
-      tr
-        th Property
-        th Value
-      tr
-        td id
-        td= transaction.customer.id
-      tr
-        td firstName
-        td= transaction.customer.firstName
-      tr
-        td lastName
-        td= transaction.customer.lastName
-      tr
-        td email
-        td= transaction.customer.email
-      tr
-        td company
-        td= transaction.customer.company
-      tr
-        td website
-        td= transaction.customer.website
-      tr
-        td phone
-        td= transaction.customer.phone
-      tr
-        td fax
-        td= transaction.customer.fax
+  aside.drawer.dark
+    header: .content.compact
+      a.braintree(href='https://developers.braintreepayments.com', target='_blank') Braintree
+      h3 API Response
 
-    p
-      a(href="/checkouts/new") Return to checkout page
+    article.content.compact
+      section
+        h5 Transaction
+
+        table(cellpadding="0" cellspacing="0")
+          tbody
+            tr
+              th id
+              td= transaction.id
+            tr
+              th type
+              td= transaction.type
+            tr
+              th amount
+              td= transaction.amount
+            tr
+              th status
+              td= transaction.status
+            tr
+              th createdAt
+              td= transaction.createdAt
+            tr
+              th updatedAt
+              td= transaction.updatedAt
+
+      section
+        h5 Payment
+
+        table(cellpadding="0" cellspacing="0")
+          tbody
+            tr
+              th token
+              td= transaction.creditCard.token
+            tr
+              th bin
+              td= transaction.creditCard.bin
+            tr
+              th last4
+              td= transaction.creditCard.last4
+            tr
+              th cardType
+              td= transaction.creditCard.cardType
+            tr
+              th expirationDate
+              td= transaction.creditCard.expirationDate
+            tr
+              th cardholderName
+              td= transaction.creditCard.cardholderName
+            tr
+              th customerLocation
+              td= transaction.creditCard.customerLocation
+
+      if transaction.customerDetails
+        section
+          h5 Customer
+
+          table(cellpadding="0" cellspacing="0")
+            tbody
+              tr
+                th id
+                td= transaction.customer.id
+              tr
+                th firstName
+                td= transaction.customer.firstName
+              tr
+                th lastName
+                td= transaction.customer.lastName
+              tr
+                th email
+                td= transaction.customer.email
+              tr
+                th company
+                td= transaction.customer.company
+              tr
+                th website
+                td= transaction.customer.website
+              tr
+                th phone
+                td= transaction.customer.phone
+              tr
+                th fax
+                td= transaction.customer.fax
+
+      section
+        p.center.small Integrate with the Braintree SDK for a secure and seamless checkout
+      section
+        a.button.secondary.full(href="https://developers.braintreepayments.com/guides/drop-in", target="_blank") 
+          span See the Docs
