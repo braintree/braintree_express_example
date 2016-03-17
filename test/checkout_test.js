@@ -80,6 +80,33 @@ describe('Checkouts show page', function(){
       });
     });
   });
+
+  it('displays a success page when transaction succeeded', function(done){
+    gateway.transaction.sale({
+      amount: '10.00',
+      paymentMethodNonce: 'fake-valid-nonce'
+    }, function(err, result){
+      transaction = result.transaction
+      api.get('/checkouts/' + transaction.id).end(function(err, res){
+        expect(res.text).to.contain('Sweet Success!')
+        done();
+      });
+    });
+  });
+
+  it('displays a failure page when transaction failed', function(done){
+    gateway.transaction.sale({
+      amount: '2000.00',
+      paymentMethodNonce: 'fake-valid-nonce'
+    }, function(err, result){
+      transaction = result.transaction
+      api.get('/checkouts/' + transaction.id).end(function(err, res){
+        expect(res.text).to.contain('Transaction Failed')
+        expect(res.text).to.contain('Your test transaction has a status of processor_declined')
+        done();
+      });
+    });
+  });
 });
 
 describe('Checkouts create', function(){

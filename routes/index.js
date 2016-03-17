@@ -1,6 +1,17 @@
 var express = require('express');
+var braintree = require('braintree');
 var router = express.Router();
 var gateway = require('../lib/gateway');
+
+var TRANSACTION_SUCCESS_STATUSES = [
+  braintree.Transaction.Status.Authorizing,
+  braintree.Transaction.Status.Authorized,
+  braintree.Transaction.Status.Settled,
+  braintree.Transaction.Status.Settling,
+  braintree.Transaction.Status.SettlementConfirmed,
+  braintree.Transaction.Status.SettlementPending,
+  braintree.Transaction.Status.SubmittedForSettlement,
+];
 
 function formatErrors (errors) {
   var formattedErrors = '';
@@ -8,6 +19,27 @@ function formatErrors (errors) {
     formattedErrors += 'Error: ' + errors[i].code + ': ' + errors[i].message + '\n';
   }
   return formattedErrors;
+}
+
+function createResultObject (transaction) {
+  var result;
+  var status = transaction.status;
+
+  if (TRANSACTION_SUCCESS_STATUSES.indexOf(status) !== -1) {
+    result = {
+      header: "Sweet Success!",
+      icon: 'success',
+      message: 'Your test transaction has been successfully processed. See the Braintree API response and try again.'
+    }
+  } else {
+    result = {
+      header: "Transaction Failed",
+      icon: 'fail',
+      message: 'Your test transaction has a status of ' + status + '. See the Braintree API response and try again.'
+    }
+  }
+
+  return result;
 }
 
 router.get('/', function(req, res, next) {
@@ -22,9 +54,9 @@ router.get('/checkouts/new', function(req, res, next) {
 
 router.get('/checkouts/:id', function(req, res, next){
   transaction_id = req.params.id;
-
   gateway.transaction.find(transaction_id, function(err, transaction){
-    res.render('checkouts/show', { transaction: transaction, result: req.flash('transactionResult')[0] });
+    var result = createResultObject(transaction);
+    res.render('checkouts/show', { transaction: transaction, result: result });
   });
 });
 
@@ -36,19 +68,7 @@ router.post('/checkouts', function(req, res, next){
     amount: amount,
     paymentMethodNonce: nonce,
   }, function(err, result){
-    if (result.success) {
-      req.flash('transactionResult', {
-        header: "Sweet Success!",
-        icon: 'success',
-        message: 'Your test transaction has been successfully processed. See the Braintree API response and try again.'
-      });
-      res.redirect('checkouts/' + result.transaction.id)
-    } else if (result.transaction) {
-      req.flash('transactionResult', {
-        header: "Transaction Failed",
-        icon: 'fail',
-        message: 'Your test transaction has a status of ' + result.transaction.status + '. See the Braintree API response and try again.'
-      });
+    if (result.success || result.transaction) {
       res.redirect('checkouts/' + result.transaction.id)
     } else {
       var transactionErrors = result.errors.deepErrors();
