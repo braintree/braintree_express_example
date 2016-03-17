@@ -28,14 +28,14 @@ describe('Checkout index page', function(){
 
   it('includes the checkout form', function(done){
     api.get('/checkouts/new').end(function(err, res) {
-      expect(res.text).to.match(/<form id="checkout"/);
+      expect(res.text).to.match(/<form id="payment-form"/);
       done();
     });
   });
 
-  it('includes the dropin payment-form div', function(done){
+  it('includes the dropin div', function(done){
     api.get('/checkouts/new').end(function(err, res) {
-      expect(res.text).to.match(/<div id="payment-form"/);
+      expect(res.text).to.match(/<div id="bt-dropin"/);
       done();
     });
   });
@@ -43,7 +43,7 @@ describe('Checkout index page', function(){
   it('includes the amount field', function(done){
     api.get('/checkouts/new').end(function(err, res) {
       expect(res.text).to.match(/<label for="amount/);
-      expect(res.text).to.match(/<input type="text" name="amount" id="amount/);
+      expect(res.text).to.match(/<input id="amount" name="amount" type="tel"/);
       done();
     });
   });
@@ -76,6 +76,33 @@ describe('Checkouts show page', function(){
         expect(res.text).to.contain(transaction.creditCard.cardType)
         expect(res.text).to.contain(transaction.creditCard.expirationDate)
         expect(res.text).to.contain(transaction.creditCard.customerLocation)
+        done();
+      });
+    });
+  });
+
+  it('displays a success page when transaction succeeded', function(done){
+    gateway.transaction.sale({
+      amount: '10.00',
+      paymentMethodNonce: 'fake-valid-nonce'
+    }, function(err, result){
+      transaction = result.transaction
+      api.get('/checkouts/' + transaction.id).end(function(err, res){
+        expect(res.text).to.contain('Sweet Success!')
+        done();
+      });
+    });
+  });
+
+  it('displays a failure page when transaction failed', function(done){
+    gateway.transaction.sale({
+      amount: '2000.00',
+      paymentMethodNonce: 'fake-valid-nonce'
+    }, function(err, result){
+      transaction = result.transaction
+      api.get('/checkouts/' + transaction.id).end(function(err, res){
+        expect(res.text).to.contain('Transaction Failed')
+        expect(res.text).to.contain('Your test transaction has a status of processor_declined')
         done();
       });
     });
@@ -132,7 +159,7 @@ describe('Checkouts create', function(){
             var req = api.get(redirectUrl)
             agent.attachCookies(req);
             req.end(function (err, res){
-              expect(res.text).to.contain('Transaction status - processor_declined');
+              expect(res.text).to.contain('Your test transaction has a status of processor_declined');
               done();
             });
           });

@@ -2,6 +2,26 @@ doctype html
 html
   head
     title BraintreeExpressExample
-    link(rel="stylesheet", href="/stylesheets/style.css")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="/stylesheets/app.css")
+    link(rel="stylesheet", href="/stylesheets/overrides.css")
+    script(type="text/javascript", src="/javascript/vendor/jquery-2.1.4.min.js")
+    script(type="text/javascript", src="/javascript/vendor/jquery.lettering-0.6.1.min.js")
+    script(type="text/javascript", src="/javascript/demo.js")
   body
+    header.main
+      .container.wide
+        .content.slim
+          .set
+            .fill
+              a.pseudoshop(href='/') PSEUDO #[strong SHOP]
+            .fit
+              a.braintree(href='https://developers.braintreepayments.com/guides/drop-in', target='_blank') Braintree
+
+      .notice-wrapper
+        if messages && messages.length > 0
+          .show.notice.error.notice-error
+            for msg in messages
+              span.notice-message= msg.msg
+
     block content
