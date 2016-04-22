@@ -1,0 +1,6 @@
+---
+extends: braintree/client
+globals:
+  $: true
+rules:
+  no-invalid-this: 0
