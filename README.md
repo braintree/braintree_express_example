@@ -3,15 +3,15 @@ An example Braintree integration for Node in the Express framework.
 
 ## Setup Instructions
 
-1. Install packages.
+1. Install packages:
 
    ```sh
    npm install
    ```
 
-2. Copy the `example.env` file to `.env` and fill in your Braintree API credentials. Credentials can be found by navigating to Account > My user > View API Keys in the Braintree control panel. Full instructions can be [found on our support site](https://articles.braintreepayments.com/control-panel/important-gateway-credentials#api-credentials).
+2. Copy the `example.env` file to `.env` and fill in your Braintree API credentials. Credentials can be found by navigating to Account > My User > View Authorizations in the Braintree Control Panel. Full instructions can be [found on our support site](https://articles.braintreepayments.com/control-panel/important-gateway-credentials#api-credentials).
 
-3. Start the server.
+3. Start the server:
 
    ```sh
    npm start
