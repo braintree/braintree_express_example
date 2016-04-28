@@ -1,0 +1,6 @@
+---
+env:
+  mocha: true
+rules:
+  no-shadow: 0
+  vars-on-top: 0

@@ -1,4 +1,6 @@
-function Demo(config){
+'use strict';
+
+function Demo(config) {
   this.config = config;
   this.config.development = config.development || false;
 
@@ -7,49 +9,46 @@ function Demo(config){
   this.button = this.paymentForm.find('.button');
 
   this.states = {
-    'show' : 'active',
-    'wait' : 'loading'
+    show: 'active',
+    wait: 'loading'
   };
-  this.focusClass = "has-focus";
-  this.valueClass = "has-value";
+  this.focusClass = 'has-focus';
+  this.valueClass = 'has-value';
 
   this.initialize();
 }
 
-
-Demo.prototype.initialize = function(){
+Demo.prototype.initialize = function () {
   var self = this;
 
   this.events();
-  this.inputs.each(function(index, element){
+  this.inputs.each(function (index, element) {
     self.labelHander($(element));
   });
   this.notify('error');
 };
 
-
-Demo.prototype.events = function(){
+Demo.prototype.events = function () {
   var self = this;
 
-  this.inputs.on('focus', function(){
-      $(this).closest('label').addClass(self.focusClass);
-      self.labelHander($(this));
-    }).on('keydown', function(){
-      self.labelHander($(this));
-    }).on('blur', function(){
-      $(this).closest('label').removeClass(self.focusClass);
-      self.labelHander($(this));
+  this.inputs.on('focus', function () {
+    $(this).closest('label').addClass(self.focusClass);
+    self.labelHander($(this));
+  }).on('keydown', function () {
+    self.labelHander($(this));
+  }).on('blur', function () {
+    $(this).closest('label').removeClass(self.focusClass);
+    self.labelHander($(this));
   });
 };
 
-
-Demo.prototype.labelHander = function(element){
+Demo.prototype.labelHander = function (element) {
   var self = this;
   var input = element;
   var label = input.closest('label');
 
-  window.setTimeout(function(){
-    var hasValue = (input.val().length > 0) ? true : false ;
+  window.setTimeout(function () {
+    var hasValue = input.val().length > 0;
 
     if (hasValue) {
       label.addClass(self.valueClass);
@@ -59,21 +58,20 @@ Demo.prototype.labelHander = function(element){
   }, 10);
 };
 
-
-Demo.prototype.notify = function(status){
+Demo.prototype.notify = function (status) {
   var self = this;
-  var notice = $('.notice-' + status );
-  var delay = (this.config.development === true) ? 4000 : 2000;
+  var notice = $('.notice-' + status);
+  var delay = this.config.development === true ? 4000 : 2000;
 
-  notice.show()
+  notice.show();
 
-  window.setTimeout(function(){
+  window.setTimeout(function () {
     notice.addClass('show');
     self.button.removeClass(self.states.wait);
 
-    window.setTimeout(function(){
+    window.setTimeout(function () {
       notice.removeClass('show');
-      window.setTimeout(function(){
+      window.setTimeout(function () {
         notice.hide();
       }, 310);
     }, delay);
