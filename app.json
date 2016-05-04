@@ -1,0 +1,28 @@
+{
+  "name": "Braintree Express Example",
+  "description": "An example Braintree integration for Express",
+  "keywords": ["braintree", "node", "nodejs", "express"],
+  "website": "https://www.braintreepayments.com",
+  "repository": "https://github.com/braintree/braintree_express_example",
+  "logo": "https://avatars1.githubusercontent.com/u/3453",
+  "success_url": "/",
+  "env": {
+    "BT_ENVIRONMENT": {
+      "description": "Run against Braintree sandbox environment",
+      "required": true,
+      "value": "sandbox"
+    },
+    "BT_MERCHANT_ID": {
+      "description": "Your Braintree Merchant ID",
+      "required": true
+    },
+    "BT_PUBLIC_KEY": {
+      "description": "Your Braintree Public Key",
+      "required": true
+    },
+    "BT_PRIVATE_KEY": {
+      "description": "Your Braintree Private Key",
+      "required": true
+    }
+  }
+}
