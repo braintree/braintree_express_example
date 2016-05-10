@@ -87,7 +87,7 @@ describe('Checkouts show page', function () {
 
   it('displays a success page when transaction succeeded', function (done) {
     gateway.transaction.sale({
-      amount: '10.00',
+      amount: '11.00',
       paymentMethodNonce: 'fake-valid-nonce'
     }, function (err, result) {
       var transaction = result.transaction;
