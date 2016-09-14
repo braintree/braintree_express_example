@@ -1,0 +1,11 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: npm start
+    ports:
+      - "4567:4567"
+    volumes:
+      - .:/braintree_express_example
+    environment:
+      - PORT=4567
