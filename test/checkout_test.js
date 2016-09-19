@@ -55,7 +55,10 @@ describe('Checkouts show page', function () {
   it('respond with 200', function (done) {
     gateway.transaction.sale({
       amount: '10.00',
-      paymentMethodNonce: 'fake-valid-nonce'
+      paymentMethodNonce: 'fake-valid-nonce',
+      options: {
+        submitForSettlement: true
+      }
     }, function (err, result) {
       var transaction = result.transaction;
 
@@ -66,7 +69,10 @@ describe('Checkouts show page', function () {
   it('displays the transaction\'s fields', function (done) {
     gateway.transaction.sale({
       amount: '10.00',
-      paymentMethodNonce: 'fake-valid-nonce'
+      paymentMethodNonce: 'fake-valid-nonce',
+      options: {
+        submitForSettlement: true
+      }
     }, function (err, result) {
       var transaction = result.transaction;
 
@@ -88,7 +94,10 @@ describe('Checkouts show page', function () {
   it('displays a success page when transaction succeeded', function (done) {
     gateway.transaction.sale({
       amount: '11.00',
-      paymentMethodNonce: 'fake-valid-nonce'
+      paymentMethodNonce: 'fake-valid-nonce',
+      options: {
+        submitForSettlement: true
+      }
     }, function (err, result) {
       var transaction = result.transaction;
 
@@ -102,7 +111,10 @@ describe('Checkouts show page', function () {
   it('displays a failure page when transaction failed', function (done) {
     gateway.transaction.sale({
       amount: '2000.00',
-      paymentMethodNonce: 'fake-valid-nonce'
+      paymentMethodNonce: 'fake-valid-nonce',
+      options: {
+        submitForSettlement: true
+      }
     }, function (err, result) {
       var transaction = result.transaction;
 
