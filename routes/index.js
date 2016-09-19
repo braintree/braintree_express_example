@@ -74,7 +74,10 @@ router.post('/checkouts', function (req, res) {
 
   gateway.transaction.sale({
     amount: amount,
-    paymentMethodNonce: nonce
+    paymentMethodNonce: nonce,
+    options: {
+      submitForSettlement: true
+    }
   }, function (err, result) {
     if (result.success || result.transaction) {
       res.redirect('checkouts/' + result.transaction.id);
