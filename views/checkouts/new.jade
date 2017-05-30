@@ -8,26 +8,46 @@ block content
 
     form#payment-form(action="/checkouts", method="post")
       section
-        .bt-drop-in-wrapper
-          #bt-dropin
-
         label(for="amount")
           span.input-label Amount
           .input-wrapper.amount-wrapper
             input#amount(name="amount" type="tel" min="1" placeholder="Amount" value="10")
 
+        .bt-drop-in-wrapper
+          #bt-dropin
+
+      input#nonce(type="hidden" name="payment_method_nonce")
       button.button(type="submit")
         span Test Transaction
 
-  script(src="https://js.braintreegateway.com/js/braintree-2.27.0.min.js")
+  script(src="https://js.braintreegateway.com/web/dropin/1.1.0/js/dropin.min.js")
   script.
-    (function () {
-      var checkout = new Demo({
-        formID: 'payment-form'
-      });
+    var form = document.querySelector('#payment-form');
+    var token = '#{clientToken}';
 
-      var token = "#{clientToken}";
-      braintree.setup(token, "dropin", {
-        container: "bt-dropin"
+    braintree.dropin.create({
+      authorization: token,
+      selector: '#bt-dropin',
+      paypal: {
+        flow: 'vault'
+      }
+    }, function (createErr, instance) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        instance.requestPaymentMethod(function (err, payload) {
+          if (err) {
+            console.log('Error', err);
+            return;
+          }
+
+          // Add the nonce to the form and submit
+          document.querySelector('#nonce').value = payload.nonce;
+          form.submit();
+        });
       });
-    })()
+    });
+
+    var checkout = new Demo({
+      formID: 'payment-form'
+    });

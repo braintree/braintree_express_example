@@ -23,7 +23,7 @@ describe('Checkout index page', function () {
 
   it('generates a client token', function (done) {
     api.get('/checkouts/new').end(function (err, res) {
-      expect(res.text).to.match(/var token = \"[\w=]+\";/);
+      expect(res.text).to.match(/var token = \'[\w=]+\';/);
       done();
     });
   });
