@@ -1548,7 +1548,7 @@ footer {
 
 .container {
   max-width: 46em;
-  margin: auto;
+  margin: 0 auto;
   width: 100%;
 }
 
@@ -2308,7 +2308,7 @@ td {
 
 @media (min-width: 1025px) {
   .checkout section {
-    padding: 40px 0;
+    padding: 10px 0;
   }
 }
 
@@ -2322,9 +2322,7 @@ td {
 .checkout p,
 .checkout section,
 .checkout .button {
-  -webkit-animation: fadeInUp 400ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
-  -moz-animation: fadeInUp 400ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
-  animation: fadeInUp 400ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
+  animation: none;
 }
 
 .checkout h1 {
@@ -2358,6 +2356,7 @@ td {
 }
 
 .bt-drop-in-wrapper {
+  min-height: 200px;
   position: relative;
   z-index: 1;
 }
