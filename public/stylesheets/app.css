@@ -1864,7 +1864,7 @@ input:focus:-ms-input-placeholder {
   color: #283036;
 }
 
-label {
+label[for="amount"] {
   -webkit-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
   -moz-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
   -ms-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -1875,7 +1875,6 @@ label {
   color: #6E787F;
   cursor: pointer;
   display: block;
-  font-size: 16px;
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   padding: 12px 14px;
@@ -1883,9 +1882,6 @@ label {
   margin-top: -11px;
   width: 100%;
   z-index: 1;
-}
-
-label[for="amount"] {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 1.2rem;
   margin-bottom: 1rem;
@@ -1898,7 +1894,7 @@ label[for="amount"] {
   }
 }
 
-label .input-label {
+label[for="amount"] .input-label {
   -webkit-transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   -moz-transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   -ms-transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -1912,17 +1908,17 @@ label .input-label {
   margin-bottom: 4px;
 }
 
-label.has-focus {
+label[for="amount"].has-focus {
   background-color: #f9f9f9;
   cursor: text;
   z-index: 2;
 }
 
-label.has-focus .input-wrapper:after {
+label[for="amount"].has-focus .input-wrapper:after {
   color: #393536;
 }
 
-label.has-focus .input-label {
+label[for="amount"].has-focus .input-label {
   color: #000;
 }
 
