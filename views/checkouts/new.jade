@@ -11,7 +11,7 @@ block content
         label(for="amount")
           span.input-label Amount
           .input-wrapper.amount-wrapper
-            input#amount(name="amount" type="tel" min="1" placeholder="Amount" value="10")
+            input#amount(name="amount" type="tel" min="1" value="10")
 
         .bt-drop-in-wrapper
           #bt-dropin
@@ -46,8 +46,4 @@ block content
           form.submit();
         });
       });
-    });
-
-    var checkout = new Demo({
-      formID: 'payment-form'
     });
