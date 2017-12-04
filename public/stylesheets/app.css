@@ -1864,7 +1864,7 @@ input:focus:-ms-input-placeholder {
   color: #283036;
 }
 
-label {
+label[for="amount"] {
   -webkit-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
   -moz-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
   -ms-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -1875,7 +1875,6 @@ label {
   color: #6E787F;
   cursor: pointer;
   display: block;
-  font-size: 16px;
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   padding: 12px 14px;
@@ -1883,9 +1882,6 @@ label {
   margin-top: -11px;
   width: 100%;
   z-index: 1;
-}
-
-label[for="amount"] {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 1.2rem;
   margin-bottom: 1rem;
@@ -1898,7 +1894,7 @@ label[for="amount"] {
   }
 }
 
-label .input-label {
+label[for="amount"] .input-label {
   -webkit-transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   -moz-transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   -ms-transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -1910,25 +1906,20 @@ label .input-label {
   font-weight: 500;
   line-height: 1;
   margin-bottom: 4px;
-  opacity: 0;
 }
 
-label.has-focus {
+label[for="amount"].has-focus {
   background-color: #f9f9f9;
   cursor: text;
   z-index: 2;
 }
 
-label.has-focus .input-wrapper:after {
+label[for="amount"].has-focus .input-wrapper:after {
   color: #393536;
 }
 
-label.has-focus .input-label {
+label[for="amount"].has-focus .input-label {
   color: #000;
-}
-
-label.has-value .input-label {
-  opacity: 1;
 }
 
 input {
@@ -1953,11 +1944,6 @@ input {
   -ms-transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.2s ease;
   -o-transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.2s ease;
   transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.2s ease;
-  -webkit-transform: translateX(-14px);
-  -moz-transform: translateX(-14px);
-  -ms-transform: translateX(-14px);
-  -o-transform: translateX(-14px);
-  transform: translateX(-14px);
   padding: 0 14px;
 }
 
@@ -1977,108 +1963,9 @@ input {
   display: inline-block;
   line-height: 1;
   left: 0px;
-  opacity: 0;
   position: absolute;
   top: 50%;
 }
-
-.has-focus .amount-wrapper input,
-.has-value .amount-wrapper input {
-  -webkit-transform: translateX(0px);
-  -moz-transform: translateX(0px);
-  -ms-transform: translateX(0px);
-  -o-transform: translateX(0px);
-  transform: translateX(0px);
-}
-
-.has-focus .amount-wrapper:after,
-.has-value .amount-wrapper:after {
-  opacity: 1;
-}
-
-.modal {
-  -webkit-transition: opacity 500ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  -moz-transition: opacity 500ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  -ms-transition: opacity 500ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  -o-transition: opacity 500ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: opacity 500ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  transform: scale(1.2);
-  background-color: rgba(255, 255, 255, 0.86);
-  height: 100%;
-  opacity: 0;
-  overflow: auto;
-  padding: 1em;
-  pointer-events: none;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  z-index: 100;
-}
-
-.modal.active {
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal-container {
-  background-color: #fff;
-  box-shadow: 0px 0px 0px 4px #fff;
-  margin: 0 auto;
-  max-width: 40em;
-  padding: 0;
-  text-align: left;
-}
-
-.modal-content {
-  border-left: solid 1px #DEE2E5;
-  border-right: solid 1px #DEE2E5;
-  padding: 30px;
-}
-
-.modal-header {
-  border: solid 1px #DEE2E5;
-  border-radius: 3px 3px 0 0;
-  padding: 1em;
-  text-align: center;
-  position: relative;
-}
-
-.modal-close {
-  -webkit-transition: color 0.2s ease;
-  -moz-transition: color 0.2s ease;
-  -ms-transition: color 0.2s ease;
-  -o-transition: color 0.2s ease;
-  transition: color 0.2s ease;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  color: #bababd;
-  padding: 16px 30px;
-  position: absolute;
-  top: 50%;
-  right: 0px;
-  font-family: "Open Sans light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Sans-serif;
-  font-size: 20px;
-  display: block;
-  line-height: 0;
-}
-
-.modal-close:hover {
-  color: #5CD493;
-}
-
 
 /* Modules */
 
