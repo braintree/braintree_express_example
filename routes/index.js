@@ -79,7 +79,7 @@ router.post('/checkouts', function (req, res) {
       submitForSettlement: true
     }
   }, function (err, result) {
-    if (result.success || result.transaction) {
+    if (result.success && result.transaction) {
       res.redirect('checkouts/' + result.transaction.id);
     } else {
       transactionErrors = result.errors.deepErrors();
