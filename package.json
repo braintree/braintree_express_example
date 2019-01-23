@@ -11,22 +11,22 @@
     "chai": "~3.4.1",
     "eslint": "2.7.0",
     "eslint-config-braintree": "^1.0.1",
-    "mocha": "~2.3.3",
-    "superagent": "~1.4.0",
-    "supertest": "~1.1.0"
+    "mocha": "^5.2.0",
+    "superagent": "^4.1.0",
+    "supertest": "^3.4.1"
   },
   "dependencies": {
-    "body-parser": "~1.14.1",
-    "cookie-parser": "~1.4.0",
-    "debug": "~2.2.0",
-    "express": "~4.13.1",
-    "jade": "~1.11.0",
-    "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0",
+    "body-parser": "^1.18.3",
     "braintree": "^2.9.0",
-    "dotenv": "~1.2.0",
     "connect-flash": "~0.1.1",
-    "express-session": "~1.12.1"
+    "cookie-parser": "~1.4.0",
+    "debug": "^4.1.1",
+    "dotenv": "~1.2.0",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "jade": "~1.11.0",
+    "morgan": "^1.9.1",
+    "serve-favicon": "^2.5.0"
   },
   "engines": {
     "node": ">=0.12.7"
