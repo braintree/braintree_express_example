@@ -2,8 +2,6 @@
 
 var expect = require('chai').expect;
 var supertest = require('supertest');
-var superagent = require('superagent');
-var agent = superagent.agent();
 
 var PORT = process.env.PORT || '3000';
 var api = supertest('http://localhost:' + PORT);
@@ -148,10 +146,11 @@ describe('Checkouts create', function () {
         api.post('/checkouts')
           .send({amount: 'not_a_valid_amount', payment_method_nonce: 'not_a_valid_nonce'}) // eslint-disable-line camelcase
           .end(function (err, res) {
-            agent.saveCookies(res);
             var req = api.get('/checkouts/new');
+            var cookie = res.headers['set-cookie'];
 
-            agent.attachCookies(req);
+            req.set('Cookie', cookie);
+
             req.end(function (err, res) {
               expect(res.text).to.contain('Error: 81503: Amount is an invalid format.');
               done();
@@ -173,11 +172,12 @@ describe('Checkouts create', function () {
         api.post('/checkouts')
           .send({amount: '2000.00', payment_method_nonce: 'fake-valid-nonce'}) // eslint-disable-line camelcase
           .end(function (err, res) {
-            agent.saveCookies(res);
             var redirectUrl = '/' + res.req.res.headers.location;
             var req = api.get(redirectUrl);
+            var cookie = res.headers['set-cookie'];
 
-            agent.attachCookies(req);
+            req.set('Cookie', cookie);
+
             req.end(function (err, res) {
               expect(res.text).to.contain('Your test transaction has a status of processor_declined');
               done();
