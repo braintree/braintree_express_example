@@ -8,23 +8,23 @@
     "test": "npm run lint && mocha"
   },
   "devDependencies": {
-    "chai": "~3.4.1",
-    "eslint": "2.7.0",
-    "eslint-config-braintree": "^1.0.1",
-    "mocha": "^5.2.0",
-    "supertest": "^3.4.1"
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-braintree": "^2.0.0",
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "braintree": "^2.9.0",
+    "body-parser": "^1.19.0",
+    "braintree": "^2.17.0",
     "connect-flash": "~0.1.1",
-    "cookie-parser": "~1.4.0",
+    "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
-    "dotenv": "~1.2.0",
-    "express": "^4.16.4",
-    "express-session": "^1.15.6",
-    "pug": "^2.0.3",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.16.1",
     "morgan": "^1.9.1",
+    "pug": "^2.0.3",
     "serve-favicon": "^2.5.0"
   },
   "engines": {
