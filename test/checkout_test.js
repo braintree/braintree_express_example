@@ -142,9 +142,9 @@ describe('Checkouts create', function () {
           .end(done);
       });
 
-      it('displays errors', function (done) {
+      it('displays errors for invalid amount', function (done) {
         api.post('/checkouts')
-          .send({amount: 'not_a_valid_amount', payment_method_nonce: 'not_a_valid_nonce'}) // eslint-disable-line camelcase
+          .send({amount: 'not_a_valid_amount', payment_method_nonce: 'fake-valid-nonce'}) // eslint-disable-line camelcase
           .end(function (err, res) {
             var req = api.get('/checkouts/new');
             var cookie = res.headers['set-cookie'];
@@ -153,6 +153,22 @@ describe('Checkouts create', function () {
 
             req.end(function (err, res) {
               expect(res.text).to.contain('Error: 81503: Amount is an invalid format.');
+              done();
+            });
+          });
+      });
+
+      it('displays errors for invalid nonce', function (done) {
+        api.post('/checkouts')
+          .send({amount: '10.00', payment_method_nonce: 'not_a_valid_nonce'}) // eslint-disable-line camelcase
+          .end(function (err, res) {
+            var req = api.get('/checkouts/new');
+            var cookie = res.headers['set-cookie'];
+
+            req.set('Cookie', cookie);
+
+            req.end(function (err, res) {
+              expect(res.text).to.contain('Error: 91565: Unknown or expired payment_method_nonce.');
               done();
             });
           });
