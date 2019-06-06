@@ -23,6 +23,7 @@ function formatErrors(errors) {
       formattedErrors += 'Error: ' + errors[i].code + ': ' + errors[i].message + '\n';
     }
   }
+
   return formattedErrors;
 }
 
