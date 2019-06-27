@@ -1,8 +1,12 @@
 language: node_js
-node_js:
 before_script:
-  - "npm start &"
-  - sleep 3
+- npm start &
+- sleep 3
 notifications:
-  email:
-    - "external-ci-notifications+braintree_express_example@getbraintree.com"
+  email: false
+  slack:
+    on_success: change
+    on_failure: always
+    on_pull_requests: false
+    rooms:
+      - secure: A6Y2rQjKdCHGs+VDkcCGnfKhLF3awO2PjdA9LwPQxBUpKYixP6u6TTsv728qEmghkI52IfgqIgo6/WZZQVnvPZruHGYpaXH2F2zml22EzbCsViRYkn9kudK+Rngx7SbBldMxYWM6fJhtCyC+FdiiU7tCip8GL+9bTpgZPKZBo3zaDuP5zHWirQVki9H45j7XmGsH929GS1/fnlwVIqmjhH/XEgoi1Aua515bIVw4tbK4YTMqJkzclj/B1DHyxUIBvpw7BHXTjO5pYlbBKhR4njYGyo1yS/raGAakLOxOhMRBzPSvuCKuYoPiR1dHf+tUZ7XFKIhExsO/9r1RH+TUyALmt16/ODsK5QerU5Sluw5CUgWoQvsE+1h3BxJDhPC4PdX61gnvIKEDnpdv2irZ19lak70vr0rs5LsqZlm48MeQg9kmF1etD0h082tBIMQWTbsD6y3Y/6PnJZMeiXuT17fHjB/hsK+cwFCEFw1MRKXRFGxbc+6iRjDDuxNwG65wEs1b7Z2xOoI0mhwWwHqLHsrVzugWK+4ePAsyxacxY8LoMtnKi8w6Swy3CIZfKI8iFdUGlmH2cy1JG5pVXP1XNemX8pof7l7fEmECXomuL0ZubejjqHAPkMpPMNbt++KXsNCGqg+axCQNyiA2ARzav5R+P1hltSrGP7QBRkVswK0=
