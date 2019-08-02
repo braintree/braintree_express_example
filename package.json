@@ -10,13 +10,13 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
-    "eslint-config-braintree": "^2.0.0",
-    "mocha": "^6.1.4",
+    "eslint-config-braintree": "^3.0.1",
+    "mocha": "^6.2.0",
     "supertest": "^4.0.2"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
-    "braintree": "^2.17.0",
+    "braintree": "^2.18.0",
     "connect-flash": "~0.1.1",
     "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
