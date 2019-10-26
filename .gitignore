@@ -1,4 +1,5 @@
 node_modules/
 public/javascript
+public/stylesheets
 *.log
 .env
