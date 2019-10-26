@@ -1,0 +1,15 @@
+{
+  "extends": "braintree/client",
+  "rules": {
+    "no-invalid-this": 0,
+    "no-console": "off",
+    "object-curly-spacing": [
+      "error",
+      "always",
+      {
+        "arraysInObjects": false,
+        "objectsInObjects": false
+      }
+    ]
+  }
+}

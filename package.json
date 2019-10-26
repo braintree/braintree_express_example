@@ -28,6 +28,6 @@
     "serve-favicon": "^2.5.0"
   },
   "engines": {
-    "node": ">=10"
   }
+    "node": ">=12"
 }
