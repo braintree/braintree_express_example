@@ -20,30 +20,4 @@ block content
       button.button(type="submit")
         span Test Transaction
 
-  script(src="https://js.braintreegateway.com/web/dropin/1.20.4/js/dropin.min.js")
-  script.
-    var form = document.querySelector('#payment-form');
-    var token = '#{clientToken}';
-
-    braintree.dropin.create({
-      authorization: token,
-      container: '#bt-dropin',
-      paypal: {
-        flow: 'vault'
-      }
-    }, function (createErr, instance) {
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        instance.requestPaymentMethod(function (err, payload) {
-          if (err) {
-            console.log('Error', err);
-            return;
-          }
-
-          // Add the nonce to the form and submit
-          document.querySelector('#nonce').value = payload.nonce;
-          form.submit();
-        });
-      });
-    });
+  input(type="hidden" value=`${clientToken}` id="client-token")

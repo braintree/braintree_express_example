@@ -6,17 +6,22 @@
     "lint": "eslint .",
     "start": "node ./bin/www",
     "test": "npm run lint && mocha"
+    "watch:js": "webpack --watch",
   },
   "devDependencies": {
+    "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
     "eslint": "^6.2.2",
     "eslint-config-braintree": "^4.0.0",
     "mocha": "^6.2.0",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
     "braintree": "^2.19.0",
+    "braintree-web-drop-in": "^1.20.4",
     "connect-flash": "~0.1.1",
     "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
@@ -28,6 +33,11 @@
     "serve-favicon": "^2.5.0"
   },
   "engines": {
-  }
     "node": ">=12"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 2%",
+    "ie 11"
+  ]
 }
