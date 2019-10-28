@@ -26,15 +26,15 @@ function formatErrors(errors) {
   return formattedErrors;
 }
 
-function createResultObject(transaction) {
+function createResultObject({ status }) {
   let result;
-  const status = transaction.status;
 
   if (TRANSACTION_SUCCESS_STATUSES.indexOf(status) !== -1) {
     result = {
       header: 'Sweet Success!',
       icon: 'success',
-      message: 'Your test transaction has been successfully processed. See the Braintree API response and try again.'
+      message:
+        'Your test transaction has been successfully processed. See the Braintree API response and try again.'
     };
   } else {
     result = {
@@ -52,7 +52,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/checkouts/new', (req, res) => {
-  gateway.clientToken.generate({}, (err, response) => {
+  gateway.clientToken.generate({}).then(response => {
     res.render('checkouts/new', {
       clientToken: response.clientToken,
       messages: req.flash('error')
@@ -60,37 +60,47 @@ router.get('/checkouts/new', (req, res) => {
   });
 });
 
-router.get('/checkouts/:id', ({ params }, { render }) => {
+router.get('/checkouts/:id', (req, res) => {
   let result;
-  const transactionId = params.id;
+  const transactionId = req.params.id;
 
-  gateway.transaction.find(transactionId, (err, transaction) => {
+  gateway.transaction.find(transactionId).then(transaction => {
     result = createResultObject(transaction);
-    render('checkouts/show', { transaction, result });
+    res.render('checkouts/show', { transaction, result });
   });
 });
 
 router.post('/checkouts', (req, res) => {
-  let transactionErrors;
   // In production you should not take amounts directly from clients
   const { amount, payment_method_nonce: paymentMethodNonce } = req.body;
 
-  gateway.transaction.sale({
-    amount,
-    paymentMethodNonce,
-    options: {
-      submitForSettlement: true
-    }
-  }, (err, { errors, success, transaction }) => {
-    if (success || transaction) {
-      res.redirect(`checkouts/${transaction.id}`);
-    } else {
-      debug('err object from transaction.sale %O', err);
-      transactionErrors = errors.deepErrors();
-      req.flash('error', { msg: formatErrors(transactionErrors) });
+  gateway.transaction
+    .sale({
+      amount,
+      paymentMethodNonce,
+      options: { submitForSettlement: true }
+    })
+    .then(result => {
+      const { success, transaction } = result;
+
+      return new Promise((resolve, reject) => {
+        if (success || transaction) {
+          res.redirect(`checkouts/${transaction.id}`);
+
+          resolve();
+        }
+
+        reject(result);
+      });
+    })
+    .catch(({ errors }) => {
+      const deepErrors = errors.deepErrors();
+
+      debug('errors from transaction.sale %O', deepErrors);
+
+      req.flash('error', { msg: formatErrors(deepErrors) });
       res.redirect('checkouts/new');
-    }
-  });
+    });
 });
 
 export default router;

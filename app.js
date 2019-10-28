@@ -9,8 +9,8 @@ import router from './routes';
 import lessMiddleware from 'less-middleware';
 import createError from 'http-errors';
 
-const staticRoot = join(__dirname, 'public');
 const app = express();
+const staticRoot = join(__dirname, 'public');
 
 // view engine setup
 app.set('views', join(__dirname, 'views'));
@@ -20,17 +20,21 @@ app.use(favicon(join(staticRoot, 'images', 'favicon.png')));
 app.use(logger('braintree_example:app', 'dev'));
 app.use(json());
 app.use(urlencoded({ extended: false }));
-app.use(lessMiddleware('src', {
-  dest: 'public',
-  pathRoot: __dirname
-}));
-app.use(session({
-  // this string is not an appropriate value for a production environment
-  // read the express-session documentation for details
-  secret: '---',
-  saveUninitialized: true,
-  resave: true
-}));
+app.use(
+  lessMiddleware('src', {
+    dest: 'public',
+    pathRoot: __dirname
+  })
+);
+app.use(
+  session({
+    // this string is not an appropriate value for a production environment
+    // read the express-session documentation for details
+    secret: '---',
+    saveUninitialized: true,
+    resave: true
+  })
+);
 app.use(express.static(staticRoot));
 app.use(flash());
 
@@ -46,9 +50,10 @@ app.use((req, res, next) => {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use((err, req, { render, status }) => { // eslint-disable-line no-unused-vars
-    status(err.status || 500);
-    render('error', {
+  // eslint-disable-next-line no-unused-vars
+  app.use((err, req, res, next) => {
+    res.status(err.status || 500);
+    res.render('error', {
       message: err.message,
       error: err
     });
@@ -57,9 +62,10 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use((err, req, { render, status }) => { // eslint-disable-line no-unused-vars
-  status(err.status || 500);
-  render('error', {
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.render('error', {
     message: err.message,
     error: {}
   });

@@ -3,3 +3,4 @@ public/javascript
 public/stylesheets
 *.log
 .env
+coverage/
