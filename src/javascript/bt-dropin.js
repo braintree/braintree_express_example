@@ -2,30 +2,34 @@ import { create } from 'braintree-web-drop-in';
 
 const form = document.getElementById('payment-form');
 
-function initDropin() {
+function initDropin(clientToken) {
   create({
-    authorization: document.getElementById('client-token').getAttribute('value'),
+    authorization: clientToken,
     container: '#bt-dropin',
     paypal: {
       flow: 'vault'
     }
-  }, (createErr, instance) => {
-    form.addEventListener('submit', event => {
-      event.preventDefault();
+  }).then(
+    instance => {
+      form.addEventListener('submit', event => {
+        event.preventDefault();
 
-      instance.requestPaymentMethod((err, {nonce}) => {
-        if (err) {
-          console.error('Error', err);
-
-          return;
-        }
-
-        // Add the nonce to the form and submit
-        document.getElementById('nonce').setAttribute('value', nonce);
-        form.submit();
+        instance
+          .requestPaymentMethod()
+          .then(({ nonce }) => {
+            // Add the nonce to the form and submit
+            document.getElementById('nonce').setAttribute('value', nonce);
+            form.submit();
+          })
+          .catch(err => {
+            console.error('Error', err);
+          });
       });
-    });
-  });
+    },
+    createError => {
+      console.error('Error creating dropin', createError);
+    }
+  );
 }
 
 export default initDropin;

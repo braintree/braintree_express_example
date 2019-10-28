@@ -2,6 +2,9 @@ import initDropin from './bt-dropin';
 
 const amount = document.getElementById('amount');
 const amountLabel = document.querySelector('label[for="amount"]');
+const clientToken = document
+  .getElementById('client-token')
+  .getAttribute('value');
 
 amount.addEventListener(
   'focus',
@@ -18,4 +21,4 @@ amount.addEventListener(
   false
 );
 
-initDropin();
+initDropin(clientToken);
