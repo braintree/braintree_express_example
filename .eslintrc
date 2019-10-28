@@ -1,6 +1,7 @@
 {
   "extends": [
-    "braintree/server"
+    "braintree/server",
+    "plugin:prettier/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -12,16 +13,5 @@
   "env": {
     "es6": true,
     "jest": true
-  },
-  "rules": {
-    "no-console": "off",
-    "object-curly-spacing": [
-      "error",
-      "always",
-      {
-        "arraysInObjects": false,
-        "objectsInObjects": false
-      }
-    ]
   }
 }

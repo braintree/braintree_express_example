@@ -1,5 +1,5 @@
 {
-  "extends": "braintree/client",
+  "extends": ["braintree/client", "plugin:prettier/recommended"],
   "rules": {
     "no-invalid-this": 0,
     "no-console": "off",
