@@ -1,17 +1,15 @@
 import { create } from 'braintree-web-drop-in';
 
-const form = document.getElementById('payment-form');
-
-function initDropin(clientToken) {
+function initDropin({ clientToken, paymentForm, container }) {
   create({
     authorization: clientToken,
-    container: '#bt-dropin',
+    container: container,
     paypal: {
       flow: 'vault'
     }
   }).then(
     instance => {
-      form.addEventListener('submit', event => {
+      paymentForm.addEventListener('submit', event => {
         event.preventDefault();
 
         instance
@@ -19,7 +17,7 @@ function initDropin(clientToken) {
           .then(({ nonce }) => {
             // Add the nonce to the form and submit
             document.getElementById('nonce').setAttribute('value', nonce);
-            form.submit();
+            paymentForm.submit();
           })
           .catch(err => {
             console.error('Error', err);
