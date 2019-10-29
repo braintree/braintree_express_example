@@ -4,7 +4,7 @@
   "coveragePathIgnorePatterns": [
     "/node_modules/"
   ],
-  "prettierPath": "node_modules/.bin/prettier",
+  "prettierPath": "<rootDir>/node_modules/.bin/prettier",
   "projects": [
     {
       "displayName": "lint",
