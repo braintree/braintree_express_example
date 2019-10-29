@@ -20,7 +20,7 @@ An example Braintree integration for Node in the Express framework.
    npm start
    ```
    
-   By default, this runs the app on post `3000`. You can configure the post by setting the environmental variable `PORT`.
+   By default, this runs the app on port `3000`. You can configure the port by setting the environmental variable `PORT`.
 
 ## Deploying to Heroku
 
