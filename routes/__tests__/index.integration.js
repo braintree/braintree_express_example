@@ -1,7 +1,7 @@
 import supertest from 'supertest';
 import gateway from '../../lib/gateway';
 
-const { get, post } = supertest('http://localhost:3030');
+const { get, post } = supertest('http://localhost:3000');
 
 describe('Braintree demo routes integration', () => {
   describe('index page', () => {
