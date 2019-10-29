@@ -20,7 +20,7 @@ An example Braintree integration for Node in the Express framework.
    npm start
    ```
    
-   By default, this runs the app on port `3000`. You can configure the port by setting the environmental variable `PORT`.
+   By default, this runs the app on post `3030`. You can configure the post by setting the environmental variable `PORT`.
 
 ## Deploying to Heroku
 
@@ -30,7 +30,9 @@ You can deploy this app directly to Heroku to see the app live. Skip the setup i
 
 ## Running tests
 
-All tests are integration tests. Integration tests make API calls to Braintree and require that you set up your Braintree credentials. You can run this project's integration tests by adding your sandbox API credentials to `.env` and running the following commands:
+To run all tests, run `npm test`. This requires the server be up and running to handle integration test requests, which make API calls to Braintree and require that you set up your Braintree credentials. 
+ 
+ You can run this project's integration tests by adding your sandbox API credentials to `.env` and running the following commands:
 
 ```sh
 # Start your node server
@@ -39,6 +41,8 @@ npm start
 # Open another shell and run
 npm test
 ```
+
+To run unit tests, use `npm run test:unit`. These do not require a server and do not make API calls.
 
 ## Testing Transactions
 
