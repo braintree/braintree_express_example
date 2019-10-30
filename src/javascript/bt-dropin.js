@@ -3,7 +3,7 @@ import { create } from 'braintree-web-drop-in';
 function initDropin({ clientToken, paymentForm, container }) {
   create({
     authorization: clientToken,
-    container: container,
+    container,
     paypal: {
       flow: 'vault'
     }
