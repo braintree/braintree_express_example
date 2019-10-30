@@ -23,9 +23,7 @@ describe('Braintree demo routes', () => {
 
     it('generates a client token', () =>
       get('/checkouts/new').then(({ text }) => {
-        expect(text).toMatch(
-          /<input type="hidden" value="[\w=]+" id="client-token">/
-        );
+        expect(text).toMatch('<span hidden id="client-token">');
       }));
 
     it('includes the checkout form', () =>

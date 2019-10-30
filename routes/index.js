@@ -52,9 +52,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/checkouts/new', (req, res) => {
-  gateway.clientToken.generate({}).then(response => {
+  gateway.clientToken.generate({}).then(({ clientToken }) => {
     res.render('checkouts/new', {
-      clientToken: response.clientToken,
+      clientToken,
       messages: req.flash('error')
     });
   });

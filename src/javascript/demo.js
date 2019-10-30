@@ -4,9 +4,7 @@ const container = document.getElementById('bt-dropin');
 const paymentForm = document.getElementById('payment-form');
 const amount = document.getElementById('amount');
 const amountLabel = document.querySelector('label[for="amount"]');
-const clientToken = document
-  .getElementById('client-token')
-  .getAttribute('value');
+const clientToken = document.getElementById('client-token').innerText;
 
 amount.addEventListener(
   'focus',
