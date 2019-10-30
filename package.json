@@ -11,12 +11,10 @@
     "watch:server": "DEBUG=\"braintree_example:*\" nodemon -r esm bin/www"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/node": "^7.6.3",
     "@babel/preset-env": "^7.6.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "eslint": "^6.2.2",
+    "eslint": "^6.6.0",
     "eslint-config-braintree": "^4.0.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
@@ -31,14 +29,14 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
-    "braintree": "^2.19.0",
+    "braintree": "^2.21.0",
     "braintree-web-drop-in": "^1.20.4",
     "connect-flash": "~0.1.1",
     "debug": "^4.1.1",
-    "dotenv": "^8.1.0",
+    "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "express-session": "^1.16.2",
+    "express-session": "^1.17.0",
     "http-errors": "^1.7.3",
     "less-middleware": "^3.1.0",
     "morgan": "^1.9.1",
@@ -48,6 +46,11 @@
   },
   "engines": {
     "node": ">=12"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "browserslist": [
     "last 2 version",

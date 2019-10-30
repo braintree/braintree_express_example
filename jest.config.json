@@ -33,10 +33,6 @@
     }
   ],
   "restoreMocks": true,
-  "roots": [
-    "<rootDir>/src/",
-    "<rootDir>/routes/"
-  ],
   "transform": {
     "^.+\\.[t|j]sx?$": "babel-jest"
   }
