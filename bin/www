@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
-import http from 'http';
-import { debug as logger } from 'debug';
-import app from '../app';
+const http = require('http');
+const logger = require('debug');
+const app = require('../app');
 
 const debug = logger('braintree_example:server');
 

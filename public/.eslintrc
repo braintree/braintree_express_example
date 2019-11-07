@@ -1,6 +1,7 @@
 {
   "extends": ["braintree/client", "plugin:prettier/recommended"],
   "rules": {
+    "strict": 0,
     "no-invalid-this": 0,
     "no-console": "off",
     "object-curly-spacing": [

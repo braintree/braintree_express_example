@@ -1,7 +1,7 @@
-import { Router } from 'express';
-import { Transaction } from 'braintree';
-import { debug as logger } from 'debug';
-import gateway from '../lib/gateway';
+const { Router } = require('express');
+const { Transaction } = require('braintree');
+const logger = require('debug');
+const gateway = require('../lib/gateway');
 
 const router = Router(); // eslint-disable-line new-cap
 const debug = logger('braintree_example:router');
@@ -103,4 +103,4 @@ router.post('/checkouts', (req, res) => {
     });
 });
 
-export default router;
+module.exports = router;

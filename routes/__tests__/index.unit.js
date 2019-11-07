@@ -1,6 +1,6 @@
-import supertest from 'supertest';
-import { approved } from '../../lib/__fixtures__/gateway';
-import app from '../../app';
+const supertest = require('supertest');
+const { approved } = require('../../lib/__fixtures__/gateway');
+const app = require('../../app');
 
 jest.mock('../../lib/gateway');
 

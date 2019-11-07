@@ -1,7 +1,8 @@
-import supertest from 'supertest';
-import gateway from '../../lib/gateway';
+const supertest = require('supertest');
+const gateway = require('../../lib/gateway');
 
-const { get, post } = supertest('http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+const { get, post } = supertest(`http://localhost:${PORT}`);
 
 describe('Braintree demo routes integration', () => {
   describe('index page', () => {

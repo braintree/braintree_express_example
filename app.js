@@ -1,13 +1,12 @@
-import express from 'express';
-import { join } from 'path';
-import favicon from 'serve-favicon';
-import logger from 'morgan-debug';
-import { json, urlencoded } from 'body-parser';
-import session from 'express-session';
-import flash from 'connect-flash';
-import router from './routes';
-import lessMiddleware from 'less-middleware';
-import createError from 'http-errors';
+const express = require('express');
+const { join } = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan-debug');
+const { json, urlencoded } = require('body-parser');
+const session = require('express-session');
+const flash = require('connect-flash');
+const router = require('./routes');
+const createError = require('http-errors');
 
 const app = express();
 const staticRoot = join(__dirname, 'public');
@@ -20,12 +19,6 @@ app.use(favicon(join(staticRoot, 'images', 'favicon.png')));
 app.use(logger('braintree_example:app', 'dev'));
 app.use(json());
 app.use(urlencoded({ extended: false }));
-app.use(
-  lessMiddleware('src', {
-    dest: 'public',
-    pathRoot: __dirname
-  })
-);
 app.use(
   session({
     // this string is not an appropriate value for a production environment
@@ -71,4 +64,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-export default app;
+module.exports = app;
