@@ -30,15 +30,10 @@ You can deploy this app directly to Heroku to see the app live. Skip the setup i
 
 ## Running tests
 
-All tests are integration tests. Integration tests make API calls to Braintree and require that you set up your Braintree credentials. You can run this project's integration tests by adding your sandbox API credentials to `.env` and running the following commands:
+To run unit tests, use `npm run test:unit`. These do not require a server and do not make API calls.
 
-```sh
-# Start your node server
-npm start
+To run all tests, run `npm test`. This requires the server be up (in a separate shell using `npm run dev` or `npm start`) to make the relevant API calls to Braintree. `npm test` requires that your _sandbox_ Braintree credentials be set up [as detailed above](#setup-instructions).
 
-# Open another shell and run
-npm test
-```
 
 ## Testing Transactions
 

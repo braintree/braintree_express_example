@@ -1,1 +1,3 @@
 public/javascript/vendor
+node_modules/
+coverage/

@@ -1,0 +1,39 @@
+{
+  "collectCoverage": true,
+  "coverageDirectory": "<rootDir>/coverage",
+  "coveragePathIgnorePatterns": [
+    "/node_modules/"
+  ],
+  "prettierPath": "<rootDir>/node_modules/.bin/prettier",
+  "projects": [
+    {
+      "displayName": "lint",
+      "runner": "jest-runner-eslint",
+      "testMatch": [
+        "<rootDir>/**/*.js",
+        "<rootDir>/bin/www",
+        "<rootDir>/app.js"
+      ]
+    },
+    {
+      "displayName": "unit-server",
+      "testMatch": [
+        "<rootDir>/bin/www",
+        "<rootDir>/lib/**/*.unit.js",
+        "<rootDir>/routes/**/*.unit.js"
+      ]
+    },
+    {
+      "displayName": "integration-server",
+      "testMatch": [
+        "<rootDir>/bin/www",
+        "<rootDir>/lib/**/*.integration.js",
+        "<rootDir>/routes/**/*.integration.js"
+      ]
+    }
+  ],
+  "restoreMocks": true,
+  "transform": {
+    "^.+\\.[t|j]sx?$": "babel-jest"
+  }
+}
