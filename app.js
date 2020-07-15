@@ -25,7 +25,7 @@ app.use(
     // read the express-session documentation for details
     secret: '---',
     saveUninitialized: true,
-    resave: true
+    resave: true,
   })
 );
 app.use(express.static(staticRoot));
@@ -48,7 +48,7 @@ if (app.get('env') === 'development') {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
-      error: err
+      error: err,
     });
   });
 }
@@ -60,7 +60,7 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
-    error: {}
+    error: {},
   });
 });
 

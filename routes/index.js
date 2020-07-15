@@ -12,7 +12,7 @@ const TRANSACTION_SUCCESS_STATUSES = [
   Transaction.Status.Settling,
   Transaction.Status.SettlementConfirmed,
   Transaction.Status.SettlementPending,
-  Transaction.Status.SubmittedForSettlement
+  Transaction.Status.SubmittedForSettlement,
 ];
 
 function formatErrors(errors) {
@@ -34,13 +34,13 @@ function createResultObject({ status }) {
       header: 'Sweet Success!',
       icon: 'success',
       message:
-        'Your test transaction has been successfully processed. See the Braintree API response and try again.'
+        'Your test transaction has been successfully processed. See the Braintree API response and try again.',
     };
   } else {
     result = {
       header: 'Transaction Failed',
       icon: 'fail',
-      message: `Your test transaction has a status of ${status}. See the Braintree API response and try again.`
+      message: `Your test transaction has a status of ${status}. See the Braintree API response and try again.`,
     };
   }
 
@@ -55,7 +55,7 @@ router.get('/checkouts/new', (req, res) => {
   gateway.clientToken.generate({}).then(({ clientToken }) => {
     res.render('checkouts/new', {
       clientToken,
-      messages: req.flash('error')
+      messages: req.flash('error'),
     });
   });
 });
@@ -64,7 +64,7 @@ router.get('/checkouts/:id', (req, res) => {
   let result;
   const transactionId = req.params.id;
 
-  gateway.transaction.find(transactionId).then(transaction => {
+  gateway.transaction.find(transactionId).then((transaction) => {
     result = createResultObject(transaction);
     res.render('checkouts/show', { transaction, result });
   });
@@ -78,9 +78,9 @@ router.post('/checkouts', (req, res) => {
     .sale({
       amount,
       paymentMethodNonce,
-      options: { submitForSettlement: true }
+      options: { submitForSettlement: true },
     })
-    .then(result => {
+    .then((result) => {
       const { success, transaction } = result;
 
       return new Promise((resolve, reject) => {

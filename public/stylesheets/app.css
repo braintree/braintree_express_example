@@ -1,7 +1,9 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
 html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -147,9 +149,9 @@ select {
 }
 
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+html input[type='button'],
+input[type='reset'],
+input[type='submit'] {
   -webkit-appearance: button;
   cursor: pointer;
 }
@@ -169,28 +171,28 @@ input {
   line-height: normal;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
+input[type='checkbox'],
+input[type='radio'] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
-input[type="search"] {
+input[type='search'] {
   -webkit-appearance: textfield;
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -226,7 +228,7 @@ th {
 .clearfix:after,
 .content:after,
 .row:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -271,7 +273,7 @@ th {
 aside.drawer header:before,
 aside.drawer article:before,
 aside.drawer article:after {
-  content: "";
+  content: '';
   display: inline-block;
   height: 100%;
   left: 0px;
@@ -282,56 +284,91 @@ aside.drawer article:after {
 
 @font-face {
   font-family: 'Open Sans light';
-  src: url("../fonts/open-sans/OpenSans-Light-webfont.eot");
-  src: url("../fonts/open-sans/OpenSans-Light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans/OpenSans-Light-webfont.woff") format("woff"), url("../fonts/open-sans/OpenSans-Light-webfont.ttf") format("truetype"), url("../fonts/open-sans/OpenSans-Light-webfont.svg#open_sansbold") format("svg");
+  src: url('../fonts/open-sans/OpenSans-Light-webfont.eot');
+  src: url('../fonts/open-sans/OpenSans-Light-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/open-sans/OpenSans-Light-webfont.woff') format('woff'),
+    url('../fonts/open-sans/OpenSans-Light-webfont.ttf') format('truetype'),
+    url('../fonts/open-sans/OpenSans-Light-webfont.svg#open_sansbold')
+      format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Open Sans regular';
-  src: url("../fonts/open-sans/OpenSans-Regular-webfont.eot");
-  src: url("../fonts/open-sans/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans/OpenSans-Regular-webfont.woff") format("woff"), url("../fonts/open-sans/OpenSans-Regular-webfont.ttf") format("truetype"), url("../fonts/open-sans/OpenSans-Regular-webfont.svg#open_sansregular") format("svg");
+  src: url('../fonts/open-sans/OpenSans-Regular-webfont.eot');
+  src: url('../fonts/open-sans/OpenSans-Regular-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/open-sans/OpenSans-Regular-webfont.woff') format('woff'),
+    url('../fonts/open-sans/OpenSans-Regular-webfont.ttf') format('truetype'),
+    url('../fonts/open-sans/OpenSans-Regular-webfont.svg#open_sansregular')
+      format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Open Sans semibold';
-  src: url("../fonts/open-sans/OpenSans-Semibold-webfont.eot");
-  src: url("../fonts/open-sans/OpenSans-Semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans/OpenSans-Semibold-webfont.woff") format("woff"), url("../fonts/open-sans/OpenSans-Semibold-webfont.ttf") format("truetype"), url("../fonts/open-sans/OpenSans-Semibold-webfont.svg#open_sanssemibold") format("svg");
+  src: url('../fonts/open-sans/OpenSans-Semibold-webfont.eot');
+  src: url('../fonts/open-sans/OpenSans-Semibold-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/open-sans/OpenSans-Semibold-webfont.woff') format('woff'),
+    url('../fonts/open-sans/OpenSans-Semibold-webfont.ttf') format('truetype'),
+    url('../fonts/open-sans/OpenSans-Semibold-webfont.svg#open_sanssemibold')
+      format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Open Sans bold';
-  src: url("../fonts/open-sans/OpenSans-Bold-webfont.eot");
-  src: url("../fonts/open-sans/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans/OpenSans-Bold-webfont.woff") format("woff"), url("../fonts/open-sans/OpenSans-Bold-webfont.ttf") format("truetype"), url("../fonts/open-sans/OpenSans-Bold-webfont.svg#open_sansbold") format("svg");
+  src: url('../fonts/open-sans/OpenSans-Bold-webfont.eot');
+  src: url('../fonts/open-sans/OpenSans-Bold-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/open-sans/OpenSans-Bold-webfont.woff') format('woff'),
+    url('../fonts/open-sans/OpenSans-Bold-webfont.ttf') format('truetype'),
+    url('../fonts/open-sans/OpenSans-Bold-webfont.svg#open_sansbold')
+      format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'BT Mono';
-  src: url("../fonts/bt-mono/bt-mono-Regular.eot");
-  src: url("../fonts/bt-mono/bt-mono-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bt-mono/bt-mono-Regular.woff2") format("woff2"), url("../fonts/bt-mono/bt-mono-Regular.woff") format("woff"), url("../fonts/bt-mono/bt-mono-Regular.ttf") format("truetype"), url("../fonts/bt-mono/bt-mono-Regular.svg#bt_monoregular") format("svg");
+  src: url('../fonts/bt-mono/bt-mono-Regular.eot');
+  src: url('../fonts/bt-mono/bt-mono-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/bt-mono/bt-mono-Regular.woff2') format('woff2'),
+    url('../fonts/bt-mono/bt-mono-Regular.woff') format('woff'),
+    url('../fonts/bt-mono/bt-mono-Regular.ttf') format('truetype'),
+    url('../fonts/bt-mono/bt-mono-Regular.svg#bt_monoregular') format('svg');
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'BT Mono medium';
-  src: url("../fonts/bt-mono/bt-mono-Medium.eot");
-  src: url("../fonts/bt-mono/bt-mono-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/bt-mono/bt-mono-Medium.woff2") format("woff2"), url("../fonts/bt-mono/bt-mono-Medium.woff") format("woff"), url("../fonts/bt-mono/bt-mono-Medium.ttf") format("truetype"), url("../fonts/bt-mono/bt-mono-Medium.svg#bt_monobold") format("svg");
+  src: url('../fonts/bt-mono/bt-mono-Medium.eot');
+  src: url('../fonts/bt-mono/bt-mono-Medium.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/bt-mono/bt-mono-Medium.woff2') format('woff2'),
+    url('../fonts/bt-mono/bt-mono-Medium.woff') format('woff'),
+    url('../fonts/bt-mono/bt-mono-Medium.ttf') format('truetype'),
+    url('../fonts/bt-mono/bt-mono-Medium.svg#bt_monobold') format('svg');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'BT Mono bold';
-  src: url("../fonts/bt-mono/bt-mono-Bold.eot");
-  src: url("../fonts/bt-mono/bt-mono-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/bt-mono/bt-mono-Bold.woff2") format("woff2"), url("../fonts/bt-mono/bt-mono-Bold.woff") format("woff"), url("../fonts/bt-mono/bt-mono-Bold.ttf") format("truetype"), url("../fonts/bt-mono/bt-mono-Bold.svg#bt_monobold") format("svg");
+  src: url('../fonts/bt-mono/bt-mono-Bold.eot');
+  src: url('../fonts/bt-mono/bt-mono-Bold.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/bt-mono/bt-mono-Bold.woff2') format('woff2'),
+    url('../fonts/bt-mono/bt-mono-Bold.woff') format('woff'),
+    url('../fonts/bt-mono/bt-mono-Bold.ttf') format('truetype'),
+    url('../fonts/bt-mono/bt-mono-Bold.svg#bt_monobold') format('svg');
   font-weight: 700;
   font-style: normal;
 }
@@ -1272,11 +1309,11 @@ aside.drawer article:after {
 body {
   background-color: #fff;
   color: #393536;
-  font-family: "BT Mono", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: 'BT Mono', 'Helvetica Neue', Helvetica, Sans-serif;
   font-size: 16px;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
-  letter-spacing: .008em;
+  letter-spacing: 0.008em;
   text-rendering: optimizeLegibility;
   line-height: 25px;
 }
@@ -1288,7 +1325,7 @@ h4,
 h5,
 h6 {
   color: #393536;
-  font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: 'BT Mono medium', 'Helvetica Neue', Helvetica, Sans-serif;
   font-weight: normal;
   line-height: 1.3;
   margin: 0;
@@ -1305,7 +1342,7 @@ h6 {
 
 h1,
 h2 {
-  font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: 'BT Mono medium', 'Helvetica Neue', Helvetica, Sans-serif;
   letter-spacing: -1px;
 }
 
@@ -1335,7 +1372,7 @@ h5 {
 }
 
 p {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
   line-height: 1.4;
   margin: 1em 0;
 }
@@ -1347,7 +1384,8 @@ ol {
 }
 
 strong {
-  font-family: "Open Sans semibold", "Avenir", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: 'Open Sans semibold', 'Avenir', 'Helvetica Neue', Helvetica,
+    Sans-serif;
   font-weight: normal;
 }
 
@@ -1364,21 +1402,21 @@ a {
 a:hover,
 a:focus,
 a:active {
-  color: #5CD493;
-  border-color: #5CD493;
+  color: #5cd493;
+  border-color: #5cd493;
 }
 
 p a,
 li a {
-  font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
-  border-bottom: solid 1px #DEE2E5;
-  padding: .2em .1em;
-  margin: 0 -.1em;
+  font-family: 'BT Mono medium', 'Helvetica Neue', Helvetica, Sans-serif;
+  border-bottom: solid 1px #dee2e5;
+  padding: 0.2em 0.1em;
+  margin: 0 -0.1em;
 }
 
 p a:hover,
 li a:hover {
-  border-color: #5CD493;
+  border-color: #5cd493;
 }
 
 img {
@@ -1463,7 +1501,7 @@ header.main {
   width: 100%;
   z-index: 20;
   background-color: #fff;
-  border-bottom: solid 1px #DEE2E5;
+  border-bottom: solid 1px #dee2e5;
 }
 
 @media (min-width: 1025px) {
@@ -1710,17 +1748,33 @@ section:last-child {
 }
 
 .button {
-  -webkit-transition: background-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  -moz-transition: background-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  -ms-transition: background-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  -o-transition: background-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  transition: background-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  background-color: #5CD493;
+  -webkit-transition: background-color 140ms
+      cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -moz-transition: background-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -ms-transition: background-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -o-transition: background-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: background-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  background-color: #5cd493;
   border: none;
   border-radius: 2px;
   display: inline-block;
   color: #fff;
-  font-family: "BT Mono bold", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: 'BT Mono bold', 'Helvetica Neue', Helvetica, Sans-serif;
   font-size: 16px;
   letter-spacing: 0;
   line-height: normal;
@@ -1771,9 +1825,12 @@ section:last-child {
 }
 
 .button span:after {
-  -webkit-animation: spin 400ms infinite normal cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards 0s paused;
-  -moz-animation: spin 400ms infinite normal cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards 0s paused;
-  animation: spin 400ms infinite normal cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards 0s paused;
+  -webkit-animation: spin 400ms infinite normal
+    cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards 0s paused;
+  -moz-animation: spin 400ms infinite normal
+    cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards 0s paused;
+  animation: spin 400ms infinite normal cubic-bezier(0.445, 0.05, 0.55, 0.95)
+    forwards 0s paused;
   -webkit-transition: opacity 200ms ease;
   -moz-transition: opacity 200ms ease;
   -ms-transition: opacity 200ms ease;
@@ -1813,14 +1870,14 @@ section:last-child {
 
 .button.secondary {
   background-color: transparent;
-  border: solid 1px #5CD493;
-  color: #5CD493;
+  border: solid 1px #5cd493;
+  color: #5cd493;
   font-size: 16px;
 }
 
 .button.secondary:hover {
   color: #fff;
-  background-color: #5CD493;
+  background-color: #5cd493;
 }
 
 .button.cap {
@@ -1829,22 +1886,22 @@ section:last-child {
 }
 
 ::-webkit-input-placeholder {
-  color: #6E787F;
+  color: #6e787f;
   line-height: 1;
 }
 
 :-moz-placeholder {
-  color: #6E787F;
+  color: #6e787f;
   line-height: 1;
 }
 
 ::-moz-placeholder {
-  color: #6E787F;
+  color: #6e787f;
   line-height: 1;
 }
 
 :-ms-input-placeholder {
-  color: #6E787F;
+  color: #6e787f;
   line-height: 1;
 }
 
@@ -1864,37 +1921,45 @@ input:focus:-ms-input-placeholder {
   color: #283036;
 }
 
-label[for="amount"] {
-  -webkit-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  -moz-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  -ms-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  -o-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  border-top: solid 1px #DEE2E5;
-  border-bottom: solid 1px #DEE2E5;
-  color: #6E787F;
+label[for='amount'] {
+  -webkit-transition: background-color 200ms
+      cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -moz-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -ms-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -o-transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  border-top: solid 1px #dee2e5;
+  border-bottom: solid 1px #dee2e5;
+  color: #6e787f;
   cursor: pointer;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
   font-weight: 300;
   padding: 12px 14px;
   position: relative;
   margin-top: -11px;
   width: 100%;
   z-index: 1;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
 
 @media (min-width: 720px) {
-  label[for="amount"] {
+  label[for='amount'] {
     border: 1px solid #b5b5b5;
     border-radius: 3px;
   }
 }
 
-label[for="amount"] .input-label {
+label[for='amount'] .input-label {
   -webkit-transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   -moz-transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   -ms-transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -1908,17 +1973,17 @@ label[for="amount"] .input-label {
   margin-bottom: 4px;
 }
 
-label[for="amount"].has-focus {
+label[for='amount'].has-focus {
   background-color: #f9f9f9;
   cursor: text;
   z-index: 2;
 }
 
-label[for="amount"].has-focus .input-wrapper:after {
+label[for='amount'].has-focus .input-wrapper:after {
   color: #393536;
 }
 
-label[for="amount"].has-focus .input-label {
+label[for='amount'].has-focus .input-label {
   color: #000;
 }
 
@@ -1939,11 +2004,16 @@ input {
 }
 
 .amount-wrapper input {
-  -webkit-transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.2s ease;
-  -moz-transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.2s ease;
-  -ms-transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.2s ease;
-  -o-transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.2s ease;
-  transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.2s ease;
+  -webkit-transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    color 0.2s ease;
+  -moz-transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    color 0.2s ease;
+  -ms-transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    color 0.2s ease;
+  -o-transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    color 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    color 0.2s ease;
   padding: 0 14px;
 }
 
@@ -1958,7 +2028,7 @@ input {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  content: "$";
+  content: '$';
   color: #393536;
   display: inline-block;
   line-height: 1;
@@ -2002,12 +2072,14 @@ header a,
   order: 2;
   -ms-flex-order: 2;
   color: #393536;
-  font-family: "Open Sans regular", "Avenir", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: 'Open Sans regular', 'Avenir', 'Helvetica Neue', Helvetica,
+    Sans-serif;
   text-align: left;
 }
 
 .pseudoshop strong {
-  font-family: "Open Sans bold", "Avenir", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: 'Open Sans bold', 'Avenir', 'Helvetica Neue', Helvetica,
+    Sans-serif;
 }
 
 @media (min-width: 641px) {
@@ -2041,8 +2113,8 @@ header a,
   -ms-flex-order: 1;
   color: #393536;
   font-size: 12px;
-  font-family: "BT Mono bold", "Helvetica Neue", Helvetica, Sans-serif;
-  opacity: .5;
+  font-family: 'BT Mono bold', 'Helvetica Neue', Helvetica, Sans-serif;
+  opacity: 0.5;
 }
 
 header.main .braintree {
@@ -2081,23 +2153,29 @@ header.main .braintree {
 
 @media (min-width: 1025px) {
   .braintree.notification {
-    -webkit-animation: pullLeftLarge 700ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 1125ms;
-    -moz-animation: pullLeftLarge 700ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 1125ms;
-    animation: pullLeftLarge 700ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 1125ms;
+    -webkit-animation: pullLeftLarge 700ms 1 normal
+      cubic-bezier(0.645, 0.045, 0.355, 1) both 1125ms;
+    -moz-animation: pullLeftLarge 700ms 1 normal
+      cubic-bezier(0.645, 0.045, 0.355, 1) both 1125ms;
+    animation: pullLeftLarge 700ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1)
+      both 1125ms;
   }
 }
 
 .braintree.dismiss {
-  -webkit-animation: fadeOutRight 300ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
-  -moz-animation: fadeOutRight 300ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
-  animation: fadeOutRight 300ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
+  -webkit-animation: fadeOutRight 300ms 1 normal
+    cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
+  -moz-animation: fadeOutRight 300ms 1 normal
+    cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
+  animation: fadeOutRight 300ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1)
+    both 0s;
   -webkit-animation-delay: 0s;
   -moz-animation-delay: 0s;
   animation-delay: 0s;
 }
 
 .notice-wrapper {
-  font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: 'BT Mono medium', 'Helvetica Neue', Helvetica, Sans-serif;
   text-align: center;
   width: 100%;
   overflow: hidden;
@@ -2122,7 +2200,7 @@ header.main .braintree {
 }
 
 .notice.error {
-  background-color: #FF6161;
+  background-color: #ff6161;
   color: #fff;
 }
 
@@ -2139,11 +2217,11 @@ table {
 }
 
 tr {
-  border-top: solid 1px #DEE2E5;
+  border-top: solid 1px #dee2e5;
 }
 
 tr:last-child {
-  border-bottom: solid 1px #DEE2E5;
+  border-bottom: solid 1px #dee2e5;
 }
 
 th,
@@ -2158,8 +2236,8 @@ td {
   hyphens: auto;
   line-height: 1.3em;
   font-size: 14px;
-  letter-spacing: .02em;
-  padding: .6em 0;
+  letter-spacing: 0.02em;
+  padding: 0.6em 0;
   vertical-align: top;
   text-align: left;
 }
@@ -2167,14 +2245,14 @@ td {
 th {
   color: #707073;
   font-weight: normal;
-  font-family: "BT Mono", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: 'BT Mono', 'Helvetica Neue', Helvetica, Sans-serif;
 }
 
 td {
   color: #393536;
-  font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: 'BT Mono medium', 'Helvetica Neue', Helvetica, Sans-serif;
   width: 60%;
-  padding: .6em 0 .6em .6em;
+  padding: 0.6em 0 0.6em 0.6em;
 }
 
 .checkout {
@@ -2184,7 +2262,6 @@ td {
 .checkout section {
   margin: 0;
   padding: 0;
-  
 }
 
 @media (min-width: 641px) {
@@ -2200,9 +2277,12 @@ td {
 }
 
 .checkout.dismiss {
-  -webkit-animation: fadeOutDown 250ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
-  -moz-animation: fadeOutDown 250ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
-  animation: fadeOutDown 250ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
+  -webkit-animation: fadeOutDown 250ms 1 normal
+    cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
+  -moz-animation: fadeOutDown 250ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1)
+    both 0s;
+  animation: fadeOutDown 250ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both
+    0s;
 }
 
 .checkout h1,
@@ -2254,13 +2334,13 @@ td {
   width: 100%;
   text-align: center;
   color: #707073;
-  border: dashed 1px #DEE2E5;
+  border: dashed 1px #dee2e5;
   border-bottom: none;
   display: table;
 }
 
 .bt-drop-in-placeholder:before {
-  content: "(Drop-in)";
+  content: '(Drop-in)';
   color: #707073;
   display: table-cell;
   vertical-align: middle;
@@ -2272,9 +2352,12 @@ td {
 
 @media (min-width: 1025px) {
   .response {
-    -webkit-animation: pullLeftSmall 600ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 1100ms;
-    -moz-animation: pullLeftSmall 600ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 1100ms;
-    animation: pullLeftSmall 600ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 1100ms;
+    -webkit-animation: pullLeftSmall 600ms 1 normal
+      cubic-bezier(0.645, 0.045, 0.355, 1) both 1100ms;
+    -moz-animation: pullLeftSmall 600ms 1 normal
+      cubic-bezier(0.645, 0.045, 0.355, 1) both 1100ms;
+    animation: pullLeftSmall 600ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1)
+      both 1100ms;
     padding: 0;
     width: 60%;
     width: 60vw;
@@ -2285,8 +2368,10 @@ td {
 .response .icon,
 .response h1,
 .response section {
-  -webkit-animation: fadeInUp 600ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
-  -moz-animation: fadeInUp 600ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
+  -webkit-animation: fadeInUp 600ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1)
+    both 0s;
+  -moz-animation: fadeInUp 600ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1)
+    both 0s;
   animation: fadeInUp 600ms 1 normal cubic-bezier(0.215, 0.61, 0.355, 1) both 0s;
 }
 
@@ -2357,9 +2442,12 @@ td {
 }
 
 aside.drawer {
-  -webkit-animation: slideInUp 1200ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 800ms;
-  -moz-animation: slideInUp 1200ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 800ms;
-  animation: slideInUp 1200ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 800ms;
+  -webkit-animation: slideInUp 1200ms 1 normal
+    cubic-bezier(0.645, 0.045, 0.355, 1) both 800ms;
+  -moz-animation: slideInUp 1200ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1)
+    both 800ms;
+  animation: slideInUp 1200ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both
+    800ms;
   width: 100%;
   background-color: #393536;
   text-align: left;
@@ -2395,9 +2483,12 @@ aside.drawer {
     -moz-flex-direction: column;
     flex-direction: column;
     -ms-flex-direction: column;
-    -webkit-animation: slideLeft 700ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 1200ms;
-    -moz-animation: slideLeft 700ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 1200ms;
-    animation: slideLeft 700ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 1200ms;
+    -webkit-animation: slideLeft 700ms 1 normal
+      cubic-bezier(0.645, 0.045, 0.355, 1) both 1200ms;
+    -moz-animation: slideLeft 700ms 1 normal
+      cubic-bezier(0.645, 0.045, 0.355, 1) both 1200ms;
+    animation: slideLeft 700ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1)
+      both 1200ms;
     padding: 0;
     position: fixed;
     width: 33.333%;
@@ -2411,9 +2502,12 @@ aside.drawer {
     overflow: hidden;
   }
   .out aside.drawer {
-    -webkit-animation: slideRight 700ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 1200ms;
-    -moz-animation: slideRight 700ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 1200ms;
-    animation: slideRight 700ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1) both 1200ms;
+    -webkit-animation: slideRight 700ms 1 normal
+      cubic-bezier(0.645, 0.045, 0.355, 1) both 1200ms;
+    -moz-animation: slideRight 700ms 1 normal
+      cubic-bezier(0.645, 0.045, 0.355, 1) both 1200ms;
+    animation: slideRight 700ms 1 normal cubic-bezier(0.645, 0.045, 0.355, 1)
+      both 1200ms;
     -webkit-animation-delay: 0s;
     -moz-animation-delay: 0s;
     animation-delay: 0s;
@@ -2427,7 +2521,7 @@ aside.drawer article {
 
 aside.drawer header {
   position: relative;
-  border-bottom: solid 1px #4B4A4E;
+  border-bottom: solid 1px #4b4a4e;
   text-align: center;
   z-index: 20;
 }
@@ -2439,7 +2533,10 @@ aside.drawer header:before {
   top: 100%;
   height: 40px;
   margin-top: 1px;
-  background-image: -webkit-linear-gradient(#393536 0%, rgba(48, 46, 51, 0) 100%);
+  background-image: -webkit-linear-gradient(
+    #393536 0%,
+    rgba(48, 46, 51, 0) 100%
+  );
   background-image: -o-linear-gradient(#393536 0%, rgba(48, 46, 51, 0) 100%);
   background-image: linear-gradient(#393536 0%, rgba(48, 46, 51, 0) 100%);
 }
@@ -2468,7 +2565,10 @@ aside.drawer article:after {
   top: auto;
   bottom: 0px;
   height: 40px;
-  background-image: -webkit-linear-gradient(rgba(48, 46, 51, 0) 0%, #393536 100%);
+  background-image: -webkit-linear-gradient(
+    rgba(48, 46, 51, 0) 0%,
+    #393536 100%
+  );
   background-image: -o-linear-gradient(rgba(48, 46, 51, 0) 0%, #393536 100%);
   background-image: linear-gradient(rgba(48, 46, 51, 0) 0%, #393536 100%);
 }
@@ -2481,16 +2581,16 @@ aside.drawer article:after {
 }
 
 aside.drawer h5 {
-  font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: 'BT Mono medium', 'Helvetica Neue', Helvetica, Sans-serif;
   color: #fff;
   line-height: 1.3em;
   font-size: 16px;
-  letter-spacing: .02em;
-  margin: 0 0 .9em;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.9em;
 }
 
 aside.drawer tr {
-  border-color: #4B4A4E;
+  border-color: #4b4a4e;
 }
 
 aside.drawer th,
@@ -2499,7 +2599,7 @@ aside.drawer td {
 }
 
 aside.drawer th {
-  color: #BABABD;
+  color: #bababd;
   width: 45%;
 }
 

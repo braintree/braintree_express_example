@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+(function () {
   var amount = document.querySelector('#amount');
   var amountLabel = document.querySelector('label[for="amount"]');
   var form = document.querySelector('#payment-form');
@@ -8,14 +8,14 @@
 
   amount.addEventListener(
     'focus',
-    function() {
+    function () {
       amountLabel.className = 'has-focus';
     },
     false
   );
   amount.addEventListener(
     'blur',
-    function() {
+    function () {
       amountLabel.className = '';
     },
     false
@@ -26,14 +26,14 @@
       authorization: clientToken,
       container: '#bt-dropin',
       paypal: {
-        flow: 'vault'
-      }
+        flow: 'vault',
+      },
     },
-    function(createErr, instance) {
-      form.addEventListener('submit', function(event) {
+    function (createErr, instance) {
+      form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        instance.requestPaymentMethod(function(err, payload) {
+        instance.requestPaymentMethod(function (err, payload) {
           if (err) {
             console.log('Error', err);
 

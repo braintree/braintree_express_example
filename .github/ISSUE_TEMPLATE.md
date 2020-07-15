@@ -1,7 +1,7 @@
 ### General information
 
-* Environment: <!-- Is this issue in Sandbox or Production? -->
-* Language, language version, and OS: <!-- Example: Node v6.9.5 on Ubuntu 16.10 -->
+- Environment: <!-- Is this issue in Sandbox or Production? -->
+- Language, language version, and OS: <!-- Example: Node v6.9.5 on Ubuntu 16.10 -->
 
 ### Issue description
 

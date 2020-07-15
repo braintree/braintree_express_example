@@ -1,7 +1,7 @@
 language: node_js
 before_script:
-- npm start &
-- sleep 3
+  - npm start &
+  - sleep 3
 notifications:
   email: false
   slack:
