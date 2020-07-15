@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prettier": "prettier --write .",
     "dev": "run-p watch:*",
     "prestart": "prettier --write .",
     "start": "node ./bin/www",
