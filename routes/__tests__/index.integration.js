@@ -26,8 +26,8 @@ describe('Braintree demo routes integration', () => {
           amount: '10.00',
           paymentMethodNonce: 'fake-valid-nonce',
           options: {
-            submitForSettlement: true
-          }
+            submitForSettlement: true,
+          },
         })
         .then(({ transaction }) => {
           get(`/checkouts/${transaction.id}`).then(({ status }) => {
@@ -41,8 +41,8 @@ describe('Braintree demo routes integration', () => {
           amount: '10.00',
           paymentMethodNonce: 'fake-valid-nonce',
           options: {
-            submitForSettlement: true
-          }
+            submitForSettlement: true,
+          },
         })
         .then(({ transaction: { id, type, amount, status, creditCard } }) => {
           const {
@@ -50,7 +50,7 @@ describe('Braintree demo routes integration', () => {
             bin,
             cardType,
             customerLocation,
-            expirationDate
+            expirationDate,
           } = creditCard;
 
           get(`/checkouts/${id}`).then(({ text }) => {
@@ -71,8 +71,8 @@ describe('Braintree demo routes integration', () => {
           amount: '11.00',
           paymentMethodNonce: 'fake-valid-nonce',
           options: {
-            submitForSettlement: true
-          }
+            submitForSettlement: true,
+          },
         })
         .then(({ transaction }) =>
           get(`/checkouts/${transaction.id}`).then(({ text }) => {
@@ -86,8 +86,8 @@ describe('Braintree demo routes integration', () => {
           amount: '2000.00',
           paymentMethodNonce: 'fake-valid-nonce',
           options: {
-            submitForSettlement: true
-          }
+            submitForSettlement: true,
+          },
         })
         .then(({ transaction }) =>
           get(`/checkouts/${transaction.id}`).then(({ text }) => {
@@ -105,7 +105,7 @@ describe('Braintree demo routes integration', () => {
         .send({
           amount: '10.00',
           // eslint-disable-next-line camelcase
-          payment_method_nonce: 'fake-valid-nonce'
+          payment_method_nonce: 'fake-valid-nonce',
         })
         .then(({ status }) => {
           expect(status).toBe(302);
@@ -118,7 +118,7 @@ describe('Braintree demo routes integration', () => {
             .send({
               amount: 'not_a_valid_amount',
               // eslint-disable-next-line camelcase
-              payment_method_nonce: 'not_a_valid_nonce'
+              payment_method_nonce: 'not_a_valid_nonce',
             })
             .then(({ headers, status }) => {
               expect(status).toBe(302);
@@ -130,9 +130,9 @@ describe('Braintree demo routes integration', () => {
             .send({
               amount: 'not_a_valid_amount',
               // eslint-disable-next-line camelcase
-              payment_method_nonce: 'fake-valid-nonce'
+              payment_method_nonce: 'fake-valid-nonce',
             })
-            .then(res => {
+            .then((res) => {
               const req = get('/checkouts/new');
               const cookie = res.headers['set-cookie'];
 
@@ -151,9 +151,9 @@ describe('Braintree demo routes integration', () => {
             .send({
               amount: 'not_a_valid_amount',
               // eslint-disable-next-line camelcase
-              payment_method_nonce: 'not_a_valid_nonce'
+              payment_method_nonce: 'not_a_valid_nonce',
             })
-            .then(res => {
+            .then((res) => {
               const req = get('/checkouts/new');
               const cookie = res.headers['set-cookie'];
 
@@ -173,9 +173,9 @@ describe('Braintree demo routes integration', () => {
             .send({
               amount: '2000.00',
               // eslint-disable-next-line camelcase
-              payment_method_nonce: 'fake-valid-nonce'
+              payment_method_nonce: 'fake-valid-nonce',
             })
-            .then(response => {
+            .then((response) => {
               expect(response.status).toBe(302);
               expect(response.headers.location).toMatch(
                 /checkouts\/[^new$][\w+]/
@@ -187,7 +187,7 @@ describe('Braintree demo routes integration', () => {
             .send({
               amount: '2000.00',
               // eslint-disable-next-line camelcase
-              payment_method_nonce: 'fake-valid-nonce'
+              payment_method_nonce: 'fake-valid-nonce',
             })
             .then(({ headers }) => {
               const redirectUrl = `/${headers.location}`;

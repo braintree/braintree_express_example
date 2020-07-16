@@ -19,7 +19,7 @@ An example Braintree integration for Node in the Express framework.
    ```sh
    npm start
    ```
-   
+
    By default, this runs the app on port `3000`. You can configure the port by setting the environmental variable `PORT`.
 
 ## Deploying to Heroku
@@ -34,16 +34,15 @@ To run unit tests, use `npm run test:unit`. These do not require a server and do
 
 To run all tests, run `npm test`. This requires the server be up (in a separate shell using `npm run dev` or `npm start`) to make the relevant API calls to Braintree. `npm test` requires that your _sandbox_ Braintree credentials be set up [as detailed above](#setup-instructions).
 
-
 ## Testing Transactions
 
 Sandbox transactions must be made with [sample credit card numbers](https://developers.braintreepayments.com/reference/general/testing/node#credit-card-numbers), and the response of a `Transaction.sale()` call is dependent on the [amount of the transaction](https://developers.braintreepayments.com/reference/general/testing/node#test-amounts).
 
 ## Help
 
- * Found a bug? Have a suggestion for improvement? Want to tell us we're awesome? [Submit an issue](https://github.com/braintree/braintree_express_example/issues)
- * Trouble with your integration? Contact [Braintree Support](https://support.braintreepayments.com/) / support@braintreepayments.com
- * Want to contribute? [Submit a pull request](https://help.github.com/articles/creating-a-pull-request)
+- Found a bug? Have a suggestion for improvement? Want to tell us we're awesome? [Submit an issue](https://github.com/braintree/braintree_express_example/issues)
+- Trouble with your integration? Contact [Braintree Support](https://support.braintreepayments.com/) / support@braintreepayments.com
+- Want to contribute? [Submit a pull request](https://help.github.com/articles/creating-a-pull-request)
 
 ## Disclaimer
 

@@ -84,7 +84,7 @@ describe('Braintree demo routes', () => {
       post('/checkouts')
         .send({
           amount: '10.00',
-          payment_method_nonce: 'fake-valid-nonce' // eslint-disable-line camelcase
+          payment_method_nonce: 'fake-valid-nonce', // eslint-disable-line camelcase
         })
         .then(({ statusCode }) => {
           expect(statusCode).toBe(302);
@@ -96,7 +96,7 @@ describe('Braintree demo routes', () => {
           post('/checkouts')
             .send({
               amount: 'not_a_valid_amount',
-              payment_method_nonce: 'not_a_valid_nonce' // eslint-disable-line camelcase
+              payment_method_nonce: 'not_a_valid_nonce', // eslint-disable-line camelcase
             })
             .then(({ headers, statusCode }) => {
               expect(statusCode).toBe(302);
@@ -107,9 +107,9 @@ describe('Braintree demo routes', () => {
           post('/checkouts')
             .send({
               amount: 'not_a_valid_amount',
-              payment_method_nonce: 'fake-valid-nonce' // eslint-disable-line camelcase
+              payment_method_nonce: 'fake-valid-nonce', // eslint-disable-line camelcase
             })
-            .then(res => {
+            .then((res) => {
               const req = get('/checkouts/new');
               const cookie = res.headers['set-cookie'];
 
@@ -126,9 +126,9 @@ describe('Braintree demo routes', () => {
           post('/checkouts')
             .send({
               amount: '9999.99',
-              payment_method_nonce: 'not_a_valid_nonce' // eslint-disable-line camelcase
+              payment_method_nonce: 'not_a_valid_nonce', // eslint-disable-line camelcase
             })
-            .then(res => {
+            .then((res) => {
               const req = get('/checkouts/new');
               const cookie = res.headers['set-cookie'];
 
@@ -147,7 +147,7 @@ describe('Braintree demo routes', () => {
           post('/checkouts')
             .send({
               amount: '2000.00',
-              payment_method_nonce: 'fake-valid-nonce' // eslint-disable-line camelcase
+              payment_method_nonce: 'fake-valid-nonce', // eslint-disable-line camelcase
             })
             .then(({ headers, statusCode }) => {
               expect(statusCode).toBe(302);
@@ -158,9 +158,9 @@ describe('Braintree demo routes', () => {
           post('/checkouts')
             .send({
               amount: '2000.00',
-              payment_method_nonce: 'fake-valid-nonce' // eslint-disable-line camelcase
+              payment_method_nonce: 'fake-valid-nonce', // eslint-disable-line camelcase
             })
-            .then(res => {
+            .then((res) => {
               const redirectUrl = `/${res.req.res.headers.location}`;
               const req = get(redirectUrl);
               const cookie = res.headers['set-cookie'];

@@ -1,14 +1,13 @@
 {
   "collectCoverage": true,
   "coverageDirectory": "<rootDir>/coverage",
-  "coveragePathIgnorePatterns": [
-    "/node_modules/"
-  ],
+  "coveragePathIgnorePatterns": ["/node_modules/"],
   "prettierPath": "<rootDir>/node_modules/.bin/prettier",
   "projects": [
     {
       "displayName": "lint",
       "runner": "jest-runner-eslint",
+      "testPathIgnorePatterns": ["<rootDir>/coverage/"],
       "testMatch": [
         "<rootDir>/**/*.js",
         "<rootDir>/bin/www",
