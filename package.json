@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "run-p watch:*",
-    "prestart": "prettier --write .",
+    "predev": "prettier --write .",
     "start": "node ./bin/www",
     "test": "jest --config=jest.config.json",
     "test:unit": "jest --testPathIgnorePatterns **/__tests__/**.integration.js",
