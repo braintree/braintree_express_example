@@ -8,6 +8,7 @@
     "start": "node ./bin/www",
     "test": "jest --config=jest.config.json",
     "test:unit": "jest --testPathIgnorePatterns **/__tests__/**.integration.js",
+    "test:integration": "jest **/__tests__/**.integration.js",
     "watch:server": "DEBUG=\"braintree_example:*\" nodemon bin/www"
   },
   "devDependencies": {
