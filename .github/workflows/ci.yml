@@ -13,11 +13,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
+    - run: npm install
+    - run: npm run test:unit
+    - run: npm start & sleep 3 && npm run test:integration
       env:
         BT_ENVIRONMENT: ${{ secrets.BT_ENVIRONMENT }}
         BT_MERCHANT_ID: ${{ secrets.BT_MERCHANT_ID }}
         BT_PUBLIC_KEY: ${{ secrets.BT_PUBLIC_KEY }}
         BT_PRIVATE_KEY: ${{ secrets.BT_PRIVATE_KEY }}
-    - run: npm install
-    - run: npm run test:unit
-    - run: npm start & sleep 3 && npm run test:integration
