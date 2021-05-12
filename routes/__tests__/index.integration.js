@@ -45,13 +45,8 @@ describe('Braintree demo routes integration', () => {
           },
         })
         .then(({ transaction: { id, type, amount, status, creditCard } }) => {
-          const {
-            last4,
-            bin,
-            cardType,
-            customerLocation,
-            expirationDate,
-          } = creditCard;
+          const { last4, bin, cardType, customerLocation, expirationDate } =
+            creditCard;
 
           get(`/checkouts/${id}`).then(({ text }) => {
             expect(text).toMatch(type);
