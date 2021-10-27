@@ -1,15 +1,15 @@
 const supertest = require('supertest');
-const { approved } = require('../../lib/__fixtures__/gateway');
+const {approved} = require('../../lib/__fixtures__/gateway');
 const app = require('../../app');
 
 jest.mock('../../lib/gateway');
 
-const { get, post } = supertest(app);
+const {get, post} = supertest(app);
 
 describe('Braintree demo routes', () => {
   describe('index', () => {
     it('redirects to the checkouts drop-in page', () =>
-      get('/').then(({ header, statusCode }) => {
+      get('/').then(({header, statusCode}) => {
         expect(header.location).toBe('/checkouts/new');
         expect(statusCode).toBe(302);
       }));
@@ -17,27 +17,27 @@ describe('Braintree demo routes', () => {
 
   describe('Checkouts new page', () => {
     it('responds with 200', () =>
-      get('/checkouts/new').then(({ statusCode }) => {
+      get('/checkouts/new').then(({statusCode}) => {
         expect(statusCode).toBe(200);
       }));
 
     it('generates a client token', () =>
-      get('/checkouts/new').then(({ text }) => {
+      get('/checkouts/new').then(({text}) => {
         expect(text).toMatch('<span hidden id="client-token">');
       }));
 
     it('includes the checkout form', () =>
-      get('/checkouts/new').then(({ text }) => {
+      get('/checkouts/new').then(({text}) => {
         expect(text).toMatch(/<form id="payment-form"/);
       }));
 
     it('includes the dropin div', () =>
-      get('/checkouts/new').then(({ text }) => {
+      get('/checkouts/new').then(({text}) => {
         expect(text).toMatch(/<div id="bt-dropin"/);
       }));
 
     it('includes the amount field', () =>
-      get('/checkouts/new').then(({ text }) => {
+      get('/checkouts/new').then(({text}) => {
         expect(text).toMatch(/<label for="amount/);
         expect(text).toMatch(
           /<input id="amount" name="amount" type="tel" min="1" value="10">/
@@ -47,13 +47,13 @@ describe('Braintree demo routes', () => {
 
   describe('Checkouts show page', () => {
     it('respond with 200', () =>
-      get('/checkouts/11111111').then(({ statusCode }) => {
+      get('/checkouts/11111111').then(({statusCode}) => {
         expect(statusCode).toBe(200);
       }));
 
     it("displays the transaction's fields", () =>
-      get('/checkouts/11111111').then(({ text }) => {
-        const { creditCard, amount, type, status } = approved;
+      get('/checkouts/11111111').then(({text}) => {
+        const {creditCard, amount, type, status} = approved;
 
         expect(text).toMatch('11111111');
         expect(text).toMatch(type);
@@ -66,12 +66,12 @@ describe('Braintree demo routes', () => {
       }));
 
     it('displays a success page when transaction succeeded', () =>
-      get('/checkouts/11111111').then(({ text }) => {
+      get('/checkouts/11111111').then(({text}) => {
         expect(text).toMatch('Sweet Success!');
       }));
 
     it('displays a failure page when transaction failed', () =>
-      get('/checkouts/22222222').then(({ text }) => {
+      get('/checkouts/22222222').then(({text}) => {
         expect(text).toMatch('Transaction Failed');
         expect(text).toMatch(
           'Your test transaction has a status of processor_declined'
@@ -84,9 +84,9 @@ describe('Braintree demo routes', () => {
       post('/checkouts')
         .send({
           amount: '10.00',
-          payment_method_nonce: 'fake-valid-nonce', // eslint-disable-line camelcase
+          payment_method_nonce: 'fake-valid-nonce' // eslint-disable-line camelcase
         })
-        .then(({ statusCode }) => {
+        .then(({statusCode}) => {
           expect(statusCode).toBe(302);
         }));
 
@@ -96,9 +96,9 @@ describe('Braintree demo routes', () => {
           post('/checkouts')
             .send({
               amount: 'not_a_valid_amount',
-              payment_method_nonce: 'not_a_valid_nonce', // eslint-disable-line camelcase
+              payment_method_nonce: 'not_a_valid_nonce' // eslint-disable-line camelcase
             })
-            .then(({ headers, statusCode }) => {
+            .then(({headers, statusCode}) => {
               expect(statusCode).toBe(302);
               expect(headers.location).toBe('checkouts/new');
             }));
@@ -107,7 +107,7 @@ describe('Braintree demo routes', () => {
           post('/checkouts')
             .send({
               amount: 'not_a_valid_amount',
-              payment_method_nonce: 'fake-valid-nonce', // eslint-disable-line camelcase
+              payment_method_nonce: 'fake-valid-nonce' // eslint-disable-line camelcase
             })
             .then((res) => {
               const req = get('/checkouts/new');
@@ -115,7 +115,7 @@ describe('Braintree demo routes', () => {
 
               req.set('Cookie', cookie);
 
-              return req.then(({ text }) =>
+              return req.then(({text}) =>
                 expect(text).toMatch(
                   'Error: 81503: Amount is an invalid format.'
                 )
@@ -126,7 +126,7 @@ describe('Braintree demo routes', () => {
           post('/checkouts')
             .send({
               amount: '9999.99',
-              payment_method_nonce: 'not_a_valid_nonce', // eslint-disable-line camelcase
+              payment_method_nonce: 'not_a_valid_nonce' // eslint-disable-line camelcase
             })
             .then((res) => {
               const req = get('/checkouts/new');
@@ -134,7 +134,7 @@ describe('Braintree demo routes', () => {
 
               req.set('Cookie', cookie);
 
-              return req.then(({ text }) =>
+              return req.then(({text}) =>
                 expect(text).toMatch(
                   'Error: 91565: Unknown or expired payment_method_nonce.'
                 )
@@ -147,9 +147,9 @@ describe('Braintree demo routes', () => {
           post('/checkouts')
             .send({
               amount: '2000.00',
-              payment_method_nonce: 'fake-valid-nonce', // eslint-disable-line camelcase
+              payment_method_nonce: 'fake-valid-nonce' // eslint-disable-line camelcase
             })
-            .then(({ headers, statusCode }) => {
+            .then(({headers, statusCode}) => {
               expect(statusCode).toBe(302);
               expect(headers.location).toMatch(/checkouts\/\S{1,64}/);
             }));
@@ -158,7 +158,7 @@ describe('Braintree demo routes', () => {
           post('/checkouts')
             .send({
               amount: '2000.00',
-              payment_method_nonce: 'fake-valid-nonce', // eslint-disable-line camelcase
+              payment_method_nonce: 'fake-valid-nonce' // eslint-disable-line camelcase
             })
             .then((res) => {
               const redirectUrl = `/${res.req.res.headers.location}`;
@@ -167,7 +167,7 @@ describe('Braintree demo routes', () => {
 
               req.set('Cookie', cookie);
 
-              return req.then(({ text }) =>
+              return req.then(({text}) =>
                 expect(text).toMatch(
                   'Your test transaction has a status of processor_declined'
                 )

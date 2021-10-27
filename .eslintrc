@@ -1,5 +1,6 @@
 {
-  "extends": ["braintree/server", "plugin:prettier/recommended"],
+  "extends": ["braintree/server"],
+  "plugins": ["prettier"],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module"
