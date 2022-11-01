@@ -22,12 +22,6 @@ An example Braintree integration for Node in the Express framework.
 
    By default, this runs the app on port `3000`. You can configure the port by setting the environmental variable `PORT`.
 
-## Deploying to Heroku
-
-You can deploy this app directly to Heroku to see the app live. Skip the setup instructions above and click the button below. This will walk you through getting this app up and running on Heroku in minutes.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/braintree/braintree_express_example&env[BT_ENVIRONMENT]=sandbox)
-
 ## Running tests
 
 To run unit tests, use `npm run test:unit`. These do not require a server and do not make API calls.
