@@ -39,11 +39,10 @@
     "serve-favicon": "^2.5.0"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "browserslist": [
     "last 2 version",
-    "> 2%",
-    "ie 11"
+    "> 2%"
   ]
 }
