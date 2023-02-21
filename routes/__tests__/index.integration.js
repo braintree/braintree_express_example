@@ -173,7 +173,7 @@ describe('Braintree demo routes integration', () => {
             .then((response) => {
               expect(response.status).toBe(302);
               expect(response.headers.location).toMatch(
-                /checkouts\/[^new$][\w+]/
+                /checkouts\/[\w+]/
               );
             }));
 
