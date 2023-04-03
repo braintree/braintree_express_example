@@ -1,6 +1,6 @@
 # Braintree Express Example
 
-[![Build Status](https://travis-ci.org/braintree/braintree_express_example.svg?branch=master)](https://travis-ci.org/braintree/braintree_express_example)
+[![Build Status](https://github.com/braintree/braintree_express_example/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/braintree/braintree_express_example/actions/workflows/ci.yml)
 
 An example Braintree integration for Node in the Express framework.
 
