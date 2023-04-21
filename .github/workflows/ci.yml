@@ -25,9 +25,11 @@ jobs:
 
       - run: npm ci
       - run: npm run test:unit
-      - run: npm start & sleep 3 && npm run test:integration
+      - name: Run integration tests
         env:
           BT_ENVIRONMENT: ${{ secrets.BT_ENVIRONMENT }}
           BT_MERCHANT_ID: ${{ secrets.BT_MERCHANT_ID }}
           BT_PUBLIC_KEY: ${{ secrets.BT_PUBLIC_KEY }}
           BT_PRIVATE_KEY: ${{ secrets.BT_PRIVATE_KEY }}
+        run: npm start & sleep 3 && npm run test:integration
+        
