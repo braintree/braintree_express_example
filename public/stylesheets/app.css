@@ -2322,30 +2322,6 @@ td {
   animation-duration: 700ms;
 }
 
-.bt-drop-in-wrapper {
-  min-height: 200px;
-  position: relative;
-  z-index: 1;
-}
-
-.bt-drop-in-placeholder {
-  background-color: #f9f9f9;
-  height: 187px;
-  width: 100%;
-  text-align: center;
-  color: #707073;
-  border: dashed 1px #dee2e5;
-  border-bottom: none;
-  display: table;
-}
-
-.bt-drop-in-placeholder:before {
-  content: '(Drop-in)';
-  color: #707073;
-  display: table-cell;
-  vertical-align: middle;
-}
-
 .response {
   text-align: center;
 }
@@ -2618,4 +2594,30 @@ aside.drawer ::selection {
   background: rgba(255, 255, 255, 0.99);
   color: rgba(62, 60, 65, 0.99);
   text-shadow: none;
+}
+
+/* Hosted Fields */
+.hosted-fields-wrapper {
+  margin-top: 20px;
+}
+
+.hosted-fields-wrapper label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.hosted-field {
+  height: 40px;
+  padding: 8px 12px;
+  border: solid 1px #dee2e5;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.hosted-field.braintree-hosted-fields-focused {
+  border-color: #393536;
+}
+
+.hosted-field.braintree-hosted-fields-invalid {
+  border-color: #d0021b;
 }
