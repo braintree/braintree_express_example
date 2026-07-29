@@ -4,6 +4,13 @@
 
 An example Braintree integration for Node in the Express framework.
 
+> [!WARNING]
+> Starting September 1, 2026 the Drop-in SDK will move to a [deprecated status](https://developer.paypal.com/braintree/docs/guides/client-sdk/deprecation-policy/javascript/v3/#status-categories) and we will no longer make any updates to this SDK. Processing will be supported for 1 year after the deprecation date, but you should upgrade immediately to avoid any disruption.
+>
+> Starting September 1, 2027 the Drop-in SDK will move to an [unsupported status](https://developer.paypal.com/braintree/docs/guides/client-sdk/deprecation-policy/javascript/v3/#status-categories) and will no longer be supported by Braintree developers or Braintree Support. Processing for unsupported SDKs can be suspended at any time.
+>
+> Please migrate to [Hosted Fields](https://developer.paypal.com/braintree/docs/start/tutorial-hosted-fields-node/) to continue processing and receiving updates.
+
 ## Setup Instructions
 
 1. Install packages:
