@@ -8,7 +8,7 @@ const { get, post } = supertest(app);
 
 describe('Braintree demo routes', () => {
   describe('index', () => {
-    it('redirects to the checkouts drop-in page', () =>
+    it('redirects to the checkouts page', () =>
       get('/').then(({ header, statusCode }) => {
         expect(header.location).toBe('/checkouts/new');
         expect(statusCode).toBe(302);
@@ -31,9 +31,11 @@ describe('Braintree demo routes', () => {
         expect(text).toMatch(/<form id="payment-form"/);
       }));
 
-    it('includes the dropin div', () =>
+    it('includes the hosted fields', () =>
       get('/checkouts/new').then(({ text }) => {
-        expect(text).toMatch(/<div id="bt-dropin"/);
+        expect(text).toMatch(/<div class="hosted-field" id="card-number">/);
+        expect(text).toMatch(/<div class="hosted-field" id="expiration-date">/);
+        expect(text).toMatch(/<div class="hosted-field" id="cvv">/);
       }));
 
     it('includes the amount field', () =>
@@ -92,7 +94,7 @@ describe('Braintree demo routes', () => {
 
     describe('when the transaction is not successful', () => {
       describe('when Braintree returns an error', () => {
-        it('redirects to the drop-in checkout page if transaction is not created', () =>
+        it('redirects to the new checkout page if transaction is not created', () =>
           post('/checkouts')
             .send({
               amount: 'not_a_valid_amount',

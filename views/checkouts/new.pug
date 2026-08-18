@@ -4,7 +4,7 @@ block content
   .wrapper: .checkout.container: .content
     header
       h1 Hi, #[br] Let's test a transaction
-      p Make a test payment with Braintree using PayPal or a card
+      p Make a test payment with Braintree using a card
 
     form#payment-form(action="/checkouts", method="post")
       section
@@ -13,8 +13,21 @@ block content
           .input-wrapper.amount-wrapper
             input#amount(name="amount" type="tel" min="1" value="10")
 
-        .bt-drop-in-wrapper
-          #bt-dropin
+        .hosted-fields-wrapper
+          label(for="card-number")
+            span.input-label Card Number
+            .input-wrapper
+              #card-number.hosted-field
+
+          label(for="expiration-date")
+            span.input-label Expiration Date
+            .input-wrapper
+              #expiration-date.hosted-field
+
+          label(for="cvv")
+            span.input-label CVV
+            .input-wrapper
+              #cvv.hosted-field
 
       input#nonce(type="hidden" name="payment_method_nonce")
       button.button(type="submit")
@@ -22,5 +35,6 @@ block content
 
   span(hidden id="client-token")=clientToken
 
-  script(src="https://js.braintreegateway.com/web/dropin/1.41.0/js/dropin.min.js")
+  script(src="https://js.braintreegateway.com/web/3.143.0/js/client.min.js")
+  script(src="https://js.braintreegateway.com/web/3.143.0/js/hosted-fields.min.js")
   script(type="text/javascript", src="/javascript/demo.js")
