@@ -21,30 +21,65 @@
     false
   );
 
-  window.braintree.dropin.create(
+  window.braintree.client.create(
     {
       authorization: clientToken,
-      container: '#bt-dropin',
-      paypal: {
-        flow: 'vault',
-      },
     },
-    function (createErr, instance) {
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
+    function (clientErr, clientInstance) {
+      if (clientErr) {
+        console.log('Error', clientErr);
 
-        instance.requestPaymentMethod(function (err, payload) {
-          if (err) {
-            console.log('Error', err);
+        return;
+      }
+
+      window.braintree.hostedFields.create(
+        {
+          client: clientInstance,
+          styles: {
+            input: {
+              'font-size': '16px',
+              color: '#393536',
+            },
+          },
+          fields: {
+            number: {
+              selector: '#card-number',
+              placeholder: '4111 1111 1111 1111',
+            },
+            expirationDate: {
+              selector: '#expiration-date',
+              placeholder: 'MM/YY',
+            },
+            cvv: {
+              selector: '#cvv',
+              placeholder: '123',
+            },
+          },
+        },
+        function (hostedFieldsErr, hostedFieldsInstance) {
+          if (hostedFieldsErr) {
+            console.log('Error', hostedFieldsErr);
 
             return;
           }
 
-          // Add the nonce to the form and submit
-          document.querySelector('#nonce').value = payload.nonce;
-          form.submit();
-        });
-      });
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            hostedFieldsInstance.tokenize(function (err, payload) {
+              if (err) {
+                console.log('Error', err);
+
+                return;
+              }
+
+              // Add the nonce to the form and submit
+              document.querySelector('#nonce').value = payload.nonce;
+              form.submit();
+            });
+          });
+        }
+      );
     }
   );
 })();
